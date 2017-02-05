@@ -13,8 +13,8 @@
 Замените все папки и файлы в директории engine
 
 # Установка
-- Выполняем запросы
-INSERT INTO `dle_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('tags', 'Добавление тегов', 'Пользовательские предложения тегов', 'tags.png', '1');
+- Выполняем запросы<br>
+<code>INSERT INTO `dle_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('tags', 'Добавление тегов', 'Пользовательские предложения тегов', 'tags.png', '1');
 CREATE TABLE IF NOT EXISTS `dle_post_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_id` text NOT NULL,
@@ -24,29 +24,29 @@ CREATE TABLE IF NOT EXISTS `dle_post_tags` (
   FULLTEXT KEY `news_id` (`news_id`),
   FULLTEXT KEY `username` (`username`),
   FULLTEXT KEY `tags` (`tags`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</code><br><br>
 
 dle - меняем на свой префикс
-- Открываем .htaccess
-После 
-RewriteEngine On
-
-Ставим
-#Пользовательские теги
-RewriteRule ^tags.php index.php?do=tag [L,QSA]
-- Открываем engine/engine.php
-после
-switch ( $do ) {
-
-ставим
+- Открываем .htaccess<br>
+После <br>
+RewriteEngine On<br>
+<br>
+Ставим<br>
+#Пользовательские теги<br>
+RewriteRule ^tags.php index.php?do=tag [L,QSA]<br>
+- Открываем engine/engine.php<br>
+после<br>
+switch ( $do ) {<br>
+<br>
+ставим<br><code>
 	case "tag" :
 		include ENGINE_DIR . '/modules/tags.php';
-		break;
-- Открываем engine/modules/main.php
-Ищем
-$tpl->set ( '{speedbar}', $tpl->result['speedbar'] );
-
-ниже
+		break;</code>
+- Открываем engine/modules/main.php<br>
+Ищем<br>
+<code>$tpl->set ( '{speedbar}', $tpl->result['speedbar'] );</code><br>
+<br>
+ниже<br><code>
 /*Добавление тегов*/
 include ENGINE_DIR . '/data/tagsadd.php';
 if($tagsconf['onof'] == 1) {
@@ -64,14 +64,14 @@ if($tagsconf['onof'] == 1) {
 } else {
 	$tpl->set( '{tagsbutton}', "");
 }
-/*Добавление тегов*/
-- Открываем engine/modules/show.full.php
-перед
+/*Добавление тегов*/</code>
+- Открываем engine/modules/show.full.php<br>
+перед<br><code>
 $tpl->compile( 'content' );
 
 if( $user_group[$member_id['user_group']]['allow_hide'] ) $tpl->result['content'] = str_ireplace( "[hide]", "", str_ireplace( "[/hide]", "", $tpl->result['content']) );
-
-ставим
+</code><br><br>
+ставим<br><code>
 /*Добавление тегов*/
 		include ENGINE_DIR . '/data/tagsadd.php';
 		if($tagsconf['onof'] == 1) {
@@ -123,9 +123,9 @@ if( $user_group[$member_id['user_group']]['allow_hide'] ) $tpl->result['content'
 			$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "\\1" );
 		}
 
-		/*Добавление тегов*/
-- Открываем templates/THEME/fullstory.tpl
-В самое начало
+		/*Добавление тегов*/</code>
+- Открываем templates/THEME/fullstory.tpl<br>
+В самое начало<br><code>
 <script src="{THEME}/tagsadd/jquery.arcticmodal-0.3.min.js"></script>
 <script src="{THEME}/tagsadd/bootstrap-tokenfield.js"></script>
 <link rel="stylesheet" href="{THEME}/tagsadd/css/jquery.arcticmodal-0.3.css">
@@ -147,8 +147,8 @@ if( $user_group[$member_id['user_group']]['allow_hide'] ) $tpl->result['content'
 		$('#utags').tokenfield();
 	});
 </script>
-
-dark.css - меняем на свой или альтернативный из папки
+</code><br>
+dark.css - меняем на свой или альтернативный из папки<br>
 
 # Инструкция по применению
 - Если вы хотите подключить тег не в fullstory.tpl, а в main.tpl, то в нужное место (main.tpl) ставим тег {tagsbutton}, а в fullstory.tpl тогда тег {tagsbody}.
