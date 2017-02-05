@@ -14,7 +14,7 @@
 
 # Установка
 - Выполняем запросы<br>
-<code>INSERT INTO `dle_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('tags', 'Добавление тегов', 'Пользовательские предложения тегов', 'tags.png', '1');
+<pre><code>INSERT INTO `dle_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('tags', 'Добавление тегов', 'Пользовательские предложения тегов', 'tags.png', '1');
 CREATE TABLE IF NOT EXISTS `dle_post_tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_id` text NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `dle_post_tags` (
   FULLTEXT KEY `news_id` (`news_id`),
   FULLTEXT KEY `username` (`username`),
   FULLTEXT KEY `tags` (`tags`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</code><br><br>
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</code></pre><br><br>
 
 dle - меняем на свой префикс
 - Открываем .htaccess<br>
