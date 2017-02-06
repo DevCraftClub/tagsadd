@@ -1,7 +1,7 @@
 ![version](https://img.shields.io/badge/version-1.2.1-red.svg?style=flat-square "Version")
 ![DLE](https://img.shields.io/badge/DLE-9.X--11.x-green.svg?style=flat-square "DLE Version")
 [![MIT License](https://img.shields.io/badge/license-AGPL_3.0-blue.svg?style=flat-square)](https://github.com/Gokujo/tagsadd/blob/master/LICENSE)
-# tagsadd
+# TagsAdd+ 1.2.1
 Пользовательские теги
 
 #  Нововведения начиная с версии 1.2.1
