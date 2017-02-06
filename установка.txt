@@ -61,49 +61,42 @@ $tpl->compile( 'content' );
 if( $user_group[$member_id['user_group']]['allow_hide'] ) $tpl->result['content'] = str_ireplace( "[hide]", "", str_ireplace( "[/hide]", "", $tpl->result['content']) );
 
 ставим
+
 /*Добавление тегов*/
-		include ENGINE_DIR . '/data/tagsadd.php';
-		if($tagsconf['onof'] == 1) {
-			$tagsfull = "<a href=\"#\" role=\"button\" id=\"TagsAdd\">{$tagsconf['button']}</a><div style=\"display: none;\"><div class=\"box-modal\" id=\"AddTags\"><div class=\"box-modal_close arcticmodal-close\">закрыть</div><form action=\"/tags.php\" method=\"post\"><input class=\"form-control\" type=\"text\" placeholder=\"теги\" name=\"utags\" id=\"utags\"><input type=\"hidden\" name=\"news\" value=\"".$id."\"><input type=\"hidden\" name=\"username\" value=\"".$user."\"><input type=\"hidden\" name=\"userid\" value=\"".$userid."\"><input type=\"hidden\" name=\"link\" value=\"".$link."\"><input type=\"hidden\" name=\"title\" value=\"".$name."\"><button class=\"btn btn-block btn-success\" onclick=\"submit();\" id=\"add_tags\">Отправить</button></form></div></div>";
-			$tagsbutton = "<a href=\"#\" role=\"button\" id=\"TagsAdd\">{$tagsconf['button']}</a>";
-			$tagsbody = "<div style=\"display: none;\"><div class=\"box-modal\" id=\"AddTags\"><div class=\"box-modal_close arcticmodal-close\">закрыть</div><form action=\"/tags.php\" method=\"post\"><input class=\"form-control\" type=\"text\" placeholder=\"теги\" name=\"utags\" id=\"utags\"><input type=\"hidden\" name=\"news\" value=\"".$id."\"><input type=\"hidden\" name=\"username\" value=\"".$user."\"><input type=\"hidden\" name=\"userid\" value=\"".$userid."\"><input type=\"hidden\" name=\"link\" value=\"".$link."\"><input type=\"hidden\" name=\"title\" value=\"".$name."\"><button class=\"btn btn-block btn-success\" onclick=\"submit();\" id=\"add_tags\">Отправить</button></form></div></div>";
+include ENGINE_DIR . '/data/tagsadd.php';
+if($tagsconf['onof'] == 1) {
 
-			$id = $row['id'];
-			$name = $row['title'];
-			$link = $full_link;
+	$id = $row['id'];
+	$name = $row['title'];
+	$link = $full_link;
 
-			if($tagsconf['guest'] == 1 && empty($member_id['name'])) {
-				$user = "Гость";
-				$userid = 0;
-			} else {
-				$user = $member_id['name'];
-				$userid = $member_id['user_id'];
-			}
+	if($tagsconf['guest'] == 1 && empty($member_id['name'])) {
+		$user = "Гость";
+		$userid = 0;
+	} else {
+		$user = $member_id['name'];
+		$userid = $member_id['user_id'];
+	}
 
-			$tags = $_POST['utags'];
+	$tags = $_POST['utags'];
 
-			if($tagsconf['guest'] == 1)  {
-				$tpl->set( '{tagsadd}', $tagsfull );
-				$tpl->set( '{tagsbutton}', $tagsbutton);
-				$tpl->set( '{tagsbody}', $tagsbody);
-				$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "\\1" );
-				$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "" );
-			} else {
-				if($is_logged) {
-					$tpl->set( '{tagsadd}', $tagsfull );
-					$tpl->set( '{tagsbutton}', $tagsbutton);
-					$tpl->set( '{tagsbody}', $tagsbody);
-					$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "\\1" );
-					$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "" );
-				} else {
-					$tpl->set( '{tagsadd}', "");
-					$tpl->set( '{tagsbutton}', "");
-					$tpl->set( '{tagsbody}', "");
-					$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "" );
-					$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "\\1" );
-				}
-			}
+	$tagsfull = "<a href=\"#\" role=\"button\" id=\"TagsAdd\">{$tagsconf['button']}</a><div style=\"display: none;\"><div class=\"box-modal\" id=\"AddTags\"><div class=\"box-modal_close arcticmodal-close\">закрыть</div><form action=\"/tags.php\" method=\"post\"><input class=\"form-control\" type=\"text\" placeholder=\"теги\" name=\"utags\" id=\"utags\"><input type=\"hidden\" name=\"news\" value=\"{$id}\"><input type=\"hidden\" name=\"username\" value=\"{$user}\"><input type=\"hidden\" name=\"userid\" value=\"{$userid}\"><input type=\"hidden\" name=\"link\" value=\"{$link}\"><input type=\"hidden\" name=\"title\" value=\"{$name}\"><br><br><button class=\"btn btn-block btn-success\" onclick=\"submit();\" id=\"add_tags\">Отправить</button></form></div></div>";
+	$tagsbutton = "<a href=\"#\" role=\"button\" id=\"TagsAdd\">{$tagsconf['button']}</a>";
+	$tagsbody = "<div style=\"display: none;\"><div class=\"box-modal\" id=\"AddTags\"><div class=\"box-modal_close arcticmodal-close\">закрыть</div><form action=\"/tags.php\" method=\"post\"><input class=\"form-control\" type=\"text\" placeholder=\"теги\" name=\"utags\" id=\"utags\"><input type=\"hidden\" name=\"news\" value=\"{$id}\"><input type=\"hidden\" name=\"username\" value=\"{$user}\"><input type=\"hidden\" name=\"userid\" value=\"{$userid}\"><input type=\"hidden\" name=\"link\" value=\"{$link}\"><input type=\"hidden\" name=\"title\" value=\"{$name}\"><br><br><button class=\"btn btn-block btn-success\" onclick=\"submit();\" id=\"add_tags\">Отправить</button></form></div></div>";
 
+	if($tagsconf['guest'] == 1)  {
+		$tpl->set( '{tagsadd}', $tagsfull );
+		$tpl->set( '{tagsbutton}', $tagsbutton);
+		$tpl->set( '{tagsbody}', $tagsbody);
+		$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "\\1" );
+		$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "" );
+	} else {
+		if($is_logged) {
+			$tpl->set( '{tagsadd}', $tagsfull );
+			$tpl->set( '{tagsbutton}', $tagsbutton);
+			$tpl->set( '{tagsbody}', $tagsbody);
+			$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "\\1" );
+			$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "" );
 		} else {
 			$tpl->set( '{tagsadd}', "");
 			$tpl->set( '{tagsbutton}', "");
@@ -111,8 +104,17 @@ if( $user_group[$member_id['user_group']]['allow_hide'] ) $tpl->result['content'
 			$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "" );
 			$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "\\1" );
 		}
+	}
 
-		/*Добавление тегов*/
+} else {
+	$tpl->set( '{tagsadd}', "");
+	$tpl->set( '{tagsbutton}', "");
+	$tpl->set( '{tagsbody}', "");
+	$tpl->set_block( "'\\[usertags\\](.*?)\\[/usertags\\]'si", "" );
+	$tpl->set_block( "'\\[not-usertags\\](.*?)\\[/not-usertags\\]'si", "\\1" );
+}
+
+/*Добавление тегов*/
 		
 - Открываем templates/THEME/fullstory.tpl
 В самое начало
