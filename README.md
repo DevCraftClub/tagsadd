@@ -3,7 +3,7 @@
 [![MIT License](https://img.shields.io/badge/license-AGPL_3.0-blue.svg?style=flat-square)](https://github.com/Gokujo/tagsadd/blob/master/LICENSE)
 # TagsAdd+ 1.2.1
 Пользовательские теги
-![TagsAdd+]({{site.baseurl}}/1462111645_tagsadd%5B1%5D.png)
+![TagsAdd+](/1462111645_tagsadd%5B1%5D.png)
 
 #  Нововведения начиная с версии 1.2.1
 - добавлены теги [usertags] и [not-usertags] для скрытия данных для включённого и выключенного модуля
