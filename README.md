@@ -3,6 +3,7 @@
 [![MIT License](https://img.shields.io/badge/license-AGPL_3.0-blue.svg?style=flat-square)](https://github.com/Gokujo/tagsadd/blob/master/LICENSE)
 # TagsAdd+ 1.2.1
 Пользовательские теги
+![TagsAdd+]({{site.baseurl}}/http://maxim-harder.de/uploads/posts/2016-05/1462111645_tagsadd.png)
 
 #  Нововведения начиная с версии 1.2.1
 - добавлены теги [usertags] и [not-usertags] для скрытия данных для включённого и выключенного модуля
@@ -16,7 +17,7 @@
 Замените все папки и файлы в директории engine
 
 # Установка
-- Смотрим файл установка.txt
+- Смотрим файл [установка.txt](https://raw.githubusercontent.com/Gokujo/tagsadd/master/установка.txt)
 
 # Инструкция по применению
 - Если вы хотите подключить тег не в fullstory.tpl, а в main.tpl, то в нужное место (main.tpl) ставим тег {tagsbutton}, а в fullstory.tpl тогда тег {tagsbody}.
