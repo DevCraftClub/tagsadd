@@ -1,0 +1,1 @@
+<button type="button" class="btn btn-big" name="{name}_button" id="{name}_button">{button}</button>
