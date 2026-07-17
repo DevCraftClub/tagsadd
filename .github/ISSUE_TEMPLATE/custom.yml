@@ -28,24 +28,22 @@ body:
             value: "Моя хотелка или проблемка!"
         validations:
             required: true
-    -  type: dropdown
-       id: dle-version
-       attributes:
+    -   type: dropdown
+        id: dle-version
+        attributes:
             label: Версия DLE
-            description: На какой версии DLE это произошло?
+            description: На какую версию DLE рассчитывать?
             options:
-                - "18.0 (Default)"
-                - "17.3"
-                - "17.2"
-                - "17.1"
-                - "17.0"
-                - "17.х"
+                - "20.0 (Default)"
+                - "19.x"
+                - "18.x"
+                - "17.x"
                 - "16.x"
                 - "15.x"
                 - "14.x"
                 - "13.x"
                 - "< 13.x"
-       validations:
+        validations:
             required: true
     -   type: dropdown
         id: php-version
@@ -53,16 +51,17 @@ body:
             label: Версия PHP
             description: На какой версии PHP работает сайт?
             options:
-                - "8.3 (Default)"
+                - "8.4 (Default)"
+                - "8.3"
                 - "8.2"
                 - "8.1"
+                - "8.0"
                 - "7.x"
                 - "5.x"
         validations:
             required: true
-
     -   type: textarea
-        id: "screenshots"
+        id: screenshots
         attributes:
             label: Скриншоты и файлы
             description: Если есть возможность, добавь скриншоты и / или файлы как ты себе представляешь новый функционал
