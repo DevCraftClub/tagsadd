@@ -23,7 +23,7 @@ final class ConfigNormalizer {
 	];
 
 	/**
-	 * @param array<string, mixed> $config
+	 * @param   array<string, mixed>  $config
 	 *
 	 * @return array<string, mixed>
 	 */
@@ -34,33 +34,37 @@ final class ConfigNormalizer {
 			$config = array_merge($this->defaults(), $config);
 		}
 
-		$config['allow_guests']            = (bool) ($config['allow_guests'] ?? false);
-		$config['notify_admin']            = (bool) ($config['notify_admin'] ?? true);
-		$config['xfield_link']             = (bool) ($config['xfield_link'] ?? false);
-		$config['button_label']            = trim((string) ($config['button_label'] ?? 'Предложить теги'));
-		$config['admin_name']              = trim((string) ($config['admin_name'] ?? ''));
-		$config['mail_from']               = trim((string) ($config['mail_from'] ?? ''));
-		$config['user_inform_field']       = trim((string) ($config['user_inform_field'] ?? ''));
-		$config['xfield_name']             = trim((string) ($config['xfield_name'] ?? ''));
-		$config['decline_reason_default']  = trim((string) ($config['decline_reason_default'] ?? 'Причина не указана'));
+		$config['allow_guests']           = (bool) ($config['allow_guests'] ?? false);
+		$config['notify_admin']           = (bool) ($config['notify_admin'] ?? true);
+		$config['xfield_link']            = (bool) ($config['xfield_link'] ?? false);
+		$config['button_label']           = trim((string) ($config['button_label'] ?? 'Предложить теги'));
+		$config['admin_name']             = trim((string) ($config['admin_name'] ?? ''));
+		$config['mail_from']              = trim((string) ($config['mail_from'] ?? ''));
+		$config['user_inform_field']      = trim((string) ($config['user_inform_field'] ?? ''));
+		$config['xfield_name']            = trim((string) ($config['xfield_name'] ?? ''));
+		$config['decline_reason_default'] = trim((string) ($config['decline_reason_default'] ?? 'Причина не указана'));
 
-		$target = (string) ($config['insert_target'] ?? 'tags');
-		$config['insert_target'] = in_array($target, self::TARGETS, true) ? $target : 'tags';
+		$target                  = (string) ($config['insert_target'] ?? 'tags');
+		$config['insert_target'] = in_array($target, self::TARGETS, true)? $target : 'tags';
 
 		foreach([
-			'admin_mail_title', 'admin_mail_body',
-			'user_mail_send_title', 'user_mail_send_body',
-			'user_mail_approve_title', 'user_mail_approve_body',
-			'user_mail_reject_title', 'user_mail_reject_body',
+			'admin_mail_title',
+			'admin_mail_body',
+			'user_mail_send_title',
+			'user_mail_send_body',
+			'user_mail_approve_title',
+			'user_mail_approve_body',
+			'user_mail_reject_title',
+			'user_mail_reject_body',
 		] as $key) {
-			$value = (string) ($config[$key] ?? '');
-			$value = str_replace(
+			$value        = (string) ($config[$key] ?? '');
+			$value        = str_replace(
 				['&laquo;', '&raquo;', '&amp;laquo;', '&amp;raquo;'],
 				['«', '»', '«', '»'],
 				$value,
 			);
-			$value = htmlspecialchars_decode($value, ENT_QUOTES | ENT_HTML5);
-			$value = strtr($value, self::PLACEHOLDER_MIGRATE);
+			$value        = htmlspecialchars_decode($value, ENT_QUOTES|ENT_HTML5);
+			$value        = strtr($value, self::PLACEHOLDER_MIGRATE);
 			$config[$key] = $value;
 		}
 
@@ -72,36 +76,36 @@ final class ConfigNormalizer {
 	 */
 	public function defaults(): array {
 		return [
-			'allow_guests'             => false,
-			'button_label'             => 'Предложить теги',
-			'notify_admin'             => true,
-			'admin_name'               => '',
-			'mail_from'                => '',
-			'user_inform_field'        => '',
-			'insert_target'            => 'tags',
-			'xfield_name'              => '',
-			'xfield_link'              => false,
-			'decline_reason_default'   => 'Причина не указана',
-			'admin_mail_title'         => 'Новое предложение тегов: {title}',
-			'admin_mail_body'          => "Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>\nМодерация: <a href=\"{moderate_suggested_tags}\">открыть</a>",
-			'user_mail_send_title'     => 'Ваше предложение тегов отправлено',
-			'user_mail_send_body'      => "Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>",
-			'user_mail_approve_title'  => 'Теги одобрены: {title}',
-			'user_mail_approve_body'   => "Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>",
-			'user_mail_reject_title'   => 'Теги отклонены: {title}',
-			'user_mail_reject_body'    => "Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: <a href=\"{full-link}\">{title}</a>",
+			'allow_guests'            => false,
+			'button_label'            => 'Предложить теги',
+			'notify_admin'            => true,
+			'admin_name'              => '',
+			'mail_from'               => '',
+			'user_inform_field'       => '',
+			'insert_target'           => 'tags',
+			'xfield_name'             => '',
+			'xfield_link'             => false,
+			'decline_reason_default'  => __('Причина не указана'),
+			'admin_mail_title'        => __('Новое предложение тегов: {title}'),
+			'admin_mail_body'         => __("Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>\nМодерация: <a href=\"{moderate_suggested_tags}\">открыть</a>"),
+			'user_mail_send_title'    => __('Ваше предложение тегов отправлено'),
+			'user_mail_send_body'     => __("Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>"),
+			'user_mail_approve_title' => __('Теги одобрены: {title}'),
+			'user_mail_approve_body'  => __("Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: <a href=\"{full-link}\">{title}</a>"),
+			'user_mail_reject_title'  => __('Теги отклонены: {title}'),
+			'user_mail_reject_body'   => __("Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: <a href=\"{full-link}\">{title}</a>"),
 		];
 	}
 
 	/**
-	 * @param array<string, mixed> $config
+	 * @param   array<string, mixed>  $config
 	 */
 	private function looksLegacy(array $config): bool {
 		return isset($config['onof']) || isset($config['listcount']) || isset($config['fast']);
 	}
 
 	/**
-	 * @param array<string, mixed> $legacy
+	 * @param   array<string, mixed>  $legacy
 	 *
 	 * @return array<string, mixed>
 	 */
@@ -122,7 +126,7 @@ final class ConfigNormalizer {
 			'admin_name'              => (string) ($legacy['admin'] ?? ''),
 			'mail_from'               => (string) ($legacy['master'] ?? ''),
 			'button_label'            => (string) ($legacy['button'] ?? 'Предложить теги'),
-			'insert_target'           => $fast === 'field' || $fast === 'xfield' ? 'xfield' : 'tags',
+			'insert_target'           => $fast === 'field' || $fast === 'xfield'? 'xfield' : 'tags',
 			'xfield_name'             => (string) ($legacy['field'] ?? ''),
 			'xfield_link'             => !empty($legacy['xflink']),
 			'admin_mail_title'        => (string) ($legacy['adminmailtitle'] ?? ''),
@@ -150,7 +154,7 @@ final class ConfigNormalizer {
 		/** @noinspection PhpIncludeInspection */
 		include $file;
 
-		return is_array($tagsconf ?? null) ? $tagsconf : [];
+		return is_array($tagsconf ?? NULL)? $tagsconf : [];
 	}
 
 }

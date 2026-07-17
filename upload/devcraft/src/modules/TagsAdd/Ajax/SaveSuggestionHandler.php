@@ -6,8 +6,8 @@ namespace DevCraft\Modules\TagsAdd\Ajax;
 
 use DevCraft\Core\Http\AjaxRequest;
 use DevCraft\Core\Http\JsonResponse;
-use DevCraft\Core\Interfaces\AjaxHandlerInterface;
 use DevCraft\Core\Interfaces\ResponseInterface;
+use DevCraft\Core\Interfaces\AjaxHandlerInterface;
 use DevCraft\Modules\TagsAdd\Services\ModerationService;
 
 final class SaveSuggestionHandler implements AjaxHandlerInterface {

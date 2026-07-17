@@ -7,6 +7,7 @@ namespace DevCraft\Modules\TagsAdd\Models;
 use Cycle\Annotated\Annotation\Column;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\Annotated\Annotation\Table\Index;
+use DevCraft\Core\Abstracts\AbstractEntity;
 use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
 
 /**
@@ -17,15 +18,12 @@ use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
 #[Entity(role: 'tag_suggestion', repository: TagSuggestionRepository::class, table: 'tags_add')]
 #[Index(columns: ['news_id'], name: 'idx_tags_add_news_id')]
 #[Index(columns: ['date'], name: 'idx_tags_add_date')]
-class TagSuggestion {
+class TagSuggestion extends AbstractEntity {
 
-	#[Column(type: 'primary')]
-	public int $id;
-
-	#[Column(type: 'integer', unsigned: true, default: 0)]
+	#[Column(type: 'integer', default: 0, unsigned: true)]
 	public int $news_id = 0;
 
-	#[Column(type: 'integer', unsigned: true, default: 0)]
+	#[Column(type: 'integer', default: 0, unsigned: true)]
 	public int $user_id = 0;
 
 	#[Column(type: 'text')]
@@ -35,17 +33,18 @@ class TagSuggestion {
 	public \DateTimeImmutable $date;
 
 	public function __construct() {
-		$this->date = new \DateTimeImmutable();
+		$this->date      = new \DateTimeImmutable();
+		$this->createdAt = new \DateTimeImmutable();
 	}
 
-	public function getColumnVal(string $name): mixed {
+	public function getColumnVal(string $name): string|int|null|\DateTimeImmutable {
 		return match ($name) {
-			'id'      => $this->id,
+			'id'      => $this->id(),
 			'news_id' => $this->news_id,
 			'user_id' => $this->user_id,
 			'tags'    => $this->tags,
 			'date'    => $this->date,
-			default   => NULL,
+			default   => null,
 		};
 	}
 

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace DevCraft\Modules\TagsAdd\Pages;
 
 use DLEPlugins;
-use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Application;
+use DevCraft\Types\FilterSchema;
+use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Admin\FilterFormService;
 use DevCraft\Core\Support\ParseTemplateTags;
-use DevCraft\Types\FilterSchema;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
 use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
 
@@ -28,11 +28,11 @@ final class SuggestionsPage extends AbstractPage {
 			(string) ($query['order'] ?? $schema->defaultOrder),
 			$schema,
 		);
-		$sort    = strtoupper((string) ($query['sort'] ?? 'DESC'));
-		$perPage = FilterFormService::resolveListCount();
-		$page    = max(1, (int) ($query['page'] ?? 1));
-		$rules   = $filterService->parseRules($query);
-		$criteria = $filterService->rulesToCriteria($rules, $schema);
+		$sort          = strtoupper((string) ($query['sort'] ?? 'DESC'));
+		$perPage       = FilterFormService::resolveListCount();
+		$page          = max(1, (int) ($query['page'] ?? 1));
+		$rules         = $filterService->parseRules($query);
+		$criteria      = $filterService->rulesToCriteria($rules, $schema);
 
 		/** @var TagSuggestionRepository $repository */
 		$repository = Application::instance()->database()->repository(TagSuggestion::class);
@@ -84,10 +84,10 @@ final class SuggestionsPage extends AbstractPage {
 			}
 
 			$rows[] = [
-				'id'            => $item->id,
+				'id'            => $item->id(),
 				'news_id'       => $item->news_id,
 				'news_title'    => $newsTitle,
-				'news_view_url' => $news !== [] ? ParseTemplateTags::fullLink($news) : '#',
+				'news_view_url' => $news !== []? ParseTemplateTags::fullLink($news) : '#',
 				'news_edit_url' => '?mod=editnews&action=editnews&id=' . $item->news_id,
 				'user_id'       => $item->user_id,
 				'user_name'     => $userName,
@@ -124,7 +124,7 @@ final class SuggestionsPage extends AbstractPage {
 	}
 
 	/**
-	 * @param list<int> $ids
+	 * @param   list<int>  $ids
 	 *
 	 * @return array<int, array<string, mixed>>
 	 */
@@ -150,25 +150,25 @@ final class SuggestionsPage extends AbstractPage {
 	}
 
 	/**
-	 * @param list<int> $ids
+	 * @param   list<int>  $ids
 	 *
 	 * @return array<int, string>
 	 */
 	private function loadUserNameMap(array $ids): array {
-		$dle  = Application::instance()->dleData();
-		$map  = [];
+		$dle = Application::instance()->dleData();
+		$map = [];
 
 		foreach($ids as $id) {
-			$user = $dle->user(id: $id);
-			$name = trim((string) ($user['name'] ?? ''));
-			$map[$id] = $name !== '' ? $name : ('#' . $id);
+			$user     = $dle->user(id: $id);
+			$name     = trim((string) ($user['name'] ?? ''));
+			$map[$id] = $name !== ''? $name : ('#' . $id);
 		}
 
 		return $map;
 	}
 
 	/**
-	 * @param array<string, mixed> $query
+	 * @param   array<string, mixed>  $query
 	 *
 	 * @return array<int, string>
 	 */
@@ -176,7 +176,7 @@ final class SuggestionsPage extends AbstractPage {
 		$urls = [];
 
 		for($page = 1; $page <= $totalPages; $page++) {
-			$params = array_merge($query, [
+			$params      = array_merge($query, [
 				'mod'    => 'tags_add',
 				'action' => 'suggestions',
 				'page'   => $page,

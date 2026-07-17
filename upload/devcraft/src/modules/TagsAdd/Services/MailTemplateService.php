@@ -15,8 +15,8 @@ final class MailTemplateService {
 	/**
 	 * Рендер шаблона: теги новости DLE + модульные плейсхолдеры.
 	 *
-	 * @param array<string, string> $vars Модульные {user} / {suggested_tags} / …
-	 * @param array<string, mixed>  $news Строка post (если есть — ParseTemplateTags)
+	 * @param   array<string, string>  $vars  Модульные {user} / {suggested_tags} / …
+	 * @param   array<string, mixed>   $news  Строка post (если есть — ParseTemplateTags)
 	 */
 	public function render(string $template, array $vars, array $news = []): string {
 		if($news !== []) {
@@ -76,7 +76,7 @@ final class MailTemplateService {
 
 		if($wysiwyg) {
 			// Как engine/ajax/pm.php
-			$allowedTags = [
+			$allowedTags    = [
 				'dlehide[class|data-allowed-groups|contenteditable]',
 				'div[id|align|style|class|data-commenttime|data-commentuser|data-commentid|data-commentpostid|data-commentgast|contenteditable]',
 				'span[style|class|data-userurl|data-username|contenteditable]',
@@ -123,16 +123,19 @@ final class MailTemplateService {
 
 		$db->query(
 			'INSERT INTO ' . USERPREFIX
-			. "_conversations (subject, created_at, updated_at, sender_id, recipient_id) VALUES ('{$subj}', '{$time}', '{$time}', '{$senderId}', '{$to['user_id']}')",
+			.
+			"_conversations (subject, created_at, updated_at, sender_id, recipient_id) VALUES ('{$subj}', '{$time}', '{$time}', '{$senderId}', '{$to['user_id']}')",
 		);
 		$conversationId = (int) $db->insert_id();
 		$db->query(
 			'INSERT INTO ' . USERPREFIX
-			. "_conversation_users (user_id, conversation_id) VALUES ('{$to['user_id']}', '{$conversationId}') ON DUPLICATE KEY UPDATE user_id = VALUES(user_id)",
+			.
+			"_conversation_users (user_id, conversation_id) VALUES ('{$to['user_id']}', '{$conversationId}') ON DUPLICATE KEY UPDATE user_id = VALUES(user_id)",
 		);
 		$db->query(
 			'INSERT INTO ' . USERPREFIX
-			. "_conversations_messages (conversation_id, sender_id, content, created_at) VALUES ('{$conversationId}', '{$senderId}', '{$message}', '{$time}')",
+			.
+			"_conversations_messages (conversation_id, sender_id, content, created_at) VALUES ('{$conversationId}', '{$senderId}', '{$message}', '{$time}')",
 		);
 
 		$this->recountPm((int) $to['user_id']);
@@ -147,14 +150,13 @@ final class MailTemplateService {
 			return;
 		}
 
-		// ponytail: как в message.php — инкремент; полный recount через sync helper при наличии
 		$db->query(
 			'UPDATE ' . USERPREFIX . "_users SET pm_all=pm_all+1, pm_unread=pm_unread+1 WHERE user_id='{$userId}'",
 		);
 	}
 
 	/**
-	 * @param array<string, mixed> $userRow
+	 * @param   array<string, mixed>  $userRow
 	 */
 	public function userWantsNotify(array $userRow, string $field, string $event): bool {
 		$field = trim($field);

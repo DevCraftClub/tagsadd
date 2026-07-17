@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Pages;
 
-use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Application;
+use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
 
 /**
@@ -19,25 +19,25 @@ final class EditSuggestionPage extends AbstractPage {
 		/** @var TagSuggestion|null $entity */
 		$entity = $id > 0
 			? Application::instance()->database()->repository(TagSuggestion::class)->findOneById($id)
-			: null;
+			: NULL;
 
 		$title = __('Редактирование');
 		$this->addBreadcrumb($title);
 
-		$item = null;
+		$item = NULL;
 
-		if($entity !== null) {
+		if($entity !== NULL) {
 			$userName = __('Гость');
 
 			if($entity->user_id > 0) {
-				$user = Application::instance()->dleData()->user(id: $entity->user_id);
+				$user     = Application::instance()->dleData()->user(id: $entity->user_id);
 				$userName = !empty($user['name'])
 					? (string) $user['name']
 					: '#' . $entity->user_id;
 			}
 
 			$item = [
-				'id'        => $entity->id,
+				'id'        => $entity->id(),
 				'news_id'   => $entity->news_id,
 				'user_id'   => $entity->user_id,
 				'user_name' => $userName,

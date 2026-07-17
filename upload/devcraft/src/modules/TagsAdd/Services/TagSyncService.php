@@ -11,13 +11,13 @@ final class TagSyncService {
 
 	private TagNormalizer $normalizer;
 
-	public function __construct(?TagNormalizer $normalizer = null) {
+	public function __construct(?TagNormalizer $normalizer = NULL) {
 		$this->normalizer = $normalizer ?? new TagNormalizer();
 	}
 
 	/**
-	 * @param list<string>         $proposed
-	 * @param array<string, mixed> $config
+	 * @param   list<string>          $proposed
+	 * @param   array<string, mixed>  $config
 	 *
 	 * @return list<string> Фактически добавленные значения
 	 */
@@ -69,8 +69,8 @@ final class TagSyncService {
 	}
 
 	/**
-	 * @param list<string>         $proposed
-	 * @param array<string, mixed> $config
+	 * @param   list<string>          $proposed
+	 * @param   array<string, mixed>  $config
 	 *
 	 * @return list<string>
 	 */
@@ -89,7 +89,7 @@ final class TagSyncService {
 			return [];
 		}
 
-		$parts = ((string) ($row['xfields'] ?? '')) !== ''
+		$parts    = ((string) ($row['xfields'] ?? '')) !== ''
 			? explode('||', (string) $row['xfields'])
 			: [];
 		$existing = [];

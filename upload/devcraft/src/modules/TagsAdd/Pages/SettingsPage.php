@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace DevCraft\Modules\TagsAdd\Pages;
 
 use DLEPlugins;
-use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Application;
 use DevCraft\Core\Config\Paths;
-use DevCraft\Core\Interfaces\SettingsPageInterface;
 use DevCraft\Core\Support\DataManager;
+use DevCraft\Core\Abstracts\AbstractPage;
+use DevCraft\Core\Interfaces\SettingsPageInterface;
 use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
 
 /**
@@ -26,7 +26,7 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 		$configFile = Paths::config() . '/tags_add.json';
 
 		if(!is_file($configFile)) {
-			DataManager::saveConfig('tags_add', $normalizer->normalize(DataManager::getConfig('tags_add', null, 'tagsadd')));
+			DataManager::saveConfig('tags_add', $normalizer->normalize(DataManager::getConfig('tags_add', NULL, 'tagsadd')));
 		}
 
 		$dleHome = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/';
@@ -57,34 +57,34 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 				continue;
 			}
 
-			$email = trim((string) ($row['email'] ?? ''));
-			$userOptions[$name] = $email !== '' ? $name . ' <' . $email . '>' : $name;
+			$email              = trim((string) ($row['email'] ?? ''));
+			$userOptions[$name] = $email !== ''? $name . ' <' . $email . '>' : $name;
 		}
 
 		$userXfieldOptions = $empty;
 
 		foreach($dleData->userXfields() as $name => $meta) {
-			$key = is_string($name) ? $name : (string) (is_array($meta) ? ($meta['name'] ?? '') : '');
+			$key = is_string($name)? $name : (string) (is_array($meta)? ($meta['name'] ?? '') : '');
 
 			if($key === '') {
 				continue;
 			}
 
-			$label = is_array($meta) ? (string) ($meta['description'] ?? $key) : $key;
-			$userXfieldOptions[$key] = $label !== '' ? $label : $key;
+			$label                   = is_array($meta)? (string) ($meta['description'] ?? $key) : $key;
+			$userXfieldOptions[$key] = $label !== ''? $label : $key;
 		}
 
 		$postXfieldOptions = $empty;
 
 		foreach($dleData->postXfields() as $name => $meta) {
-			$key = is_string($name) ? $name : (string) (is_array($meta) ? ($meta['name'] ?? '') : '');
+			$key = is_string($name)? $name : (string) (is_array($meta)? ($meta['name'] ?? '') : '');
 
 			if($key === '') {
 				continue;
 			}
 
-			$label = is_array($meta) ? (string) ($meta['description'] ?? $key) : $key;
-			$postXfieldOptions[$key] = $label !== '' ? $label : $key;
+			$label                   = is_array($meta)? (string) ($meta['description'] ?? $key) : $key;
+			$postXfieldOptions[$key] = $label !== ''? $label : $key;
 		}
 
 		return [
@@ -102,17 +102,17 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 			return '';
 		}
 
-		if(!is_array($member_id ?? null)) {
+		if(!is_array($member_id ?? NULL)) {
 			$member_id = ['user_group' => 1, 'user_id' => 1, 'name' => ''];
 		}
 
-		if(!is_array($user_group ?? null) || $user_group === []) {
+		if(!is_array($user_group ?? NULL) || $user_group === []) {
 			$user_group = [
 				1 => ['allow_url' => 1, 'allow_image' => 1, 'group_name' => 'Admin'],
 			];
 		}
 
-		if(!is_array($lang ?? null)) {
+		if(!is_array($lang ?? NULL)) {
 			$lang = ['language_code' => 'ru', 'direction' => 'ltr'];
 		} else {
 			$lang['language_code'] = $lang['language_code'] ?? 'ru';
@@ -123,7 +123,7 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 			if(!class_exists('dle_template', false)) {
 				require_once DLEPlugins::Check(ENGINE_DIR . '/classes/templates.class.php');
 			}
-			$tpl = new \dle_template();
+			$tpl             = new \dle_template();
 			$tpl->smartphone = false;
 			$tpl->tablet     = false;
 		}
@@ -134,7 +134,7 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 		/** @noinspection PhpIncludeInspection */
 		include DLEPlugins::Check(ENGINE_DIR . '/editor/pm.php');
 
-		return isset($editor_scrips) ? (string) $editor_scrips : '';
+		return isset($editor_scrips)? (string) $editor_scrips : '';
 	}
 
 }

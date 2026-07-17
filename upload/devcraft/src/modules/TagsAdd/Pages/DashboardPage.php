@@ -18,7 +18,7 @@ final class DashboardPage extends AbstractPage {
 		$meta      = $plugin?->meta() ?? [];
 		$context   = $this->adminContext();
 		$changelog = $plugin?->changelog() ?? [];
-		$latest    = isset($changelog[0]) ? $changelog[0]->toArray() : NULL;
+		$latest    = isset($changelog[0])? $changelog[0]->toArray() : NULL;
 		$menu      = [];
 
 		if($latest !== NULL) {

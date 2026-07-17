@@ -11,8 +11,8 @@ use DevCraft\Core\Http\JsonResponse;
 use DevCraft\Core\Support\DataManager;
 use DevCraft\Core\Config\DevCraftConfig;
 use DevCraft\Core\Admin\SettingsFormService;
-use DevCraft\Core\Interfaces\AjaxHandlerInterface;
 use DevCraft\Core\Interfaces\ResponseInterface;
+use DevCraft\Core\Interfaces\AjaxHandlerInterface;
 use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
 
 /**
@@ -48,7 +48,7 @@ final class SettingsHandler implements AjaxHandlerInterface {
 		}
 
 		if($result['valid'] !== []) {
-			$existing = $normalizer->normalize(DataManager::getConfig($schema->codename, null, 'tagsadd'));
+			$existing = $normalizer->normalize(DataManager::getConfig($schema->codename, NULL, 'tagsadd'));
 			$merged   = $normalizer->normalize(array_merge($existing, $result['valid']));
 			DataManager::saveConfig($schema->codename, $merged);
 			DevCraftConfig::resetCache();
@@ -59,12 +59,18 @@ final class SettingsHandler implements AjaxHandlerInterface {
 		}
 
 		if($result['errors'] !== []) {
-			return JsonResponse::notify(__('Внимание'), __('Частичное сохранение завершено с ошибками в полях'), JsonResponse::TYPE_WARNING, [], 422, false, [
-				'code'    => 'validation',
-				'message' => __('Частичное сохранение завершено с ошибками в полях'),
-				'title'   => __('Внимание'),
-				'fields'  => $result['errors'],
-			]);
+			return JsonResponse::notify(__('Внимание'),
+				__('Частичное сохранение завершено с ошибками в полях'),
+				JsonResponse::TYPE_WARNING,
+				[],
+				422,
+				false,
+				[
+					'code'    => 'validation',
+					'message' => __('Частичное сохранение завершено с ошибками в полях'),
+					'title'   => __('Внимание'),
+					'fields'  => $result['errors'],
+				]);
 		}
 
 		return JsonResponse::toast(__('Сохранено'), ['saved' => true]);

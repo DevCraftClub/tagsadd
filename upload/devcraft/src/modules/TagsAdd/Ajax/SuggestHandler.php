@@ -6,11 +6,11 @@ namespace DevCraft\Modules\TagsAdd\Ajax;
 
 use DevCraft\Core\Http\AjaxRequest;
 use DevCraft\Core\Http\JsonResponse;
-use DevCraft\Core\Interfaces\AjaxHandlerInterface;
-use DevCraft\Core\Interfaces\ResponseInterface;
 use DevCraft\Core\Support\DataManager;
-use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
+use DevCraft\Core\Interfaces\ResponseInterface;
+use DevCraft\Core\Interfaces\AjaxHandlerInterface;
 use DevCraft\Modules\TagsAdd\Services\SuggestService;
+use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
 
 /**
  * Публичный suggest с сайта.
@@ -20,7 +20,7 @@ final class SuggestHandler implements AjaxHandlerInterface {
 	public function handle(AjaxRequest $request): ResponseInterface {
 		global $is_logged;
 
-		$cfg = (new ConfigNormalizer())->normalize(DataManager::getConfig('tags_add', null, 'tagsadd'));
+		$cfg = (new ConfigNormalizer())->normalize(DataManager::getConfig('tags_add', NULL, 'tagsadd'));
 
 		if(empty($is_logged) && empty($cfg['allow_guests'])) {
 			return JsonResponse::fail(__('Ошибка'), __('Гостям запрещено предлагать теги'), 'auth_failed', 403);
@@ -36,7 +36,7 @@ final class SuggestHandler implements AjaxHandlerInterface {
 		}
 
 		return JsonResponse::ok([
-			'id'      => $entity->id,
+			'id'      => $entity->id(),
 			'news_id' => $entity->news_id,
 		]);
 	}

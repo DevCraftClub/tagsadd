@@ -13,9 +13,9 @@ final class TagNormalizer {
 	 * @return list<string>
 	 */
 	public function parse(string $raw): array {
-		$parts = preg_split('/[,;]+/u', $raw) ?: [];
+		$parts  = preg_split('/[,;]+/u', $raw)? : [];
 		$result = [];
-		$seen = [];
+		$seen   = [];
 
 		foreach($parts as $part) {
 			$tag = trim($part);
@@ -32,22 +32,22 @@ final class TagNormalizer {
 			}
 
 			$seen[$key] = true;
-			$result[] = $tag;
+			$result[]   = $tag;
 		}
 
 		return $result;
 	}
 
 	/**
-	 * @param list<string> $tags
+	 * @param   list<string>  $tags
 	 */
 	public function toCsv(array $tags): string {
 		return implode(',', $tags);
 	}
 
 	/**
-	 * @param list<string> $existing
-	 * @param list<string> $proposed
+	 * @param   list<string>  $existing
+	 * @param   list<string>  $proposed
 	 *
 	 * @return list<string>
 	 */
@@ -68,7 +68,7 @@ final class TagNormalizer {
 			}
 
 			$map[$key] = true;
-			$out[] = $tag;
+			$out[]     = $tag;
 		}
 
 		return $out;

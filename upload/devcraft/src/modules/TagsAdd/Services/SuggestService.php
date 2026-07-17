@@ -23,17 +23,17 @@ final class SuggestService {
 		?MailTemplateService $mail = null,
 		?ModerationService $moderation = null,
 	) {
-		$this->normalizer  = $normalizer ?? new ConfigNormalizer();
-		$this->tags        = $tags ?? new TagNormalizer();
-		$this->mail        = $mail ?? new MailTemplateService();
-		$this->moderation  = $moderation ?? new ModerationService($this->normalizer, $this->tags, null, $this->mail);
+		$this->normalizer = $normalizer ?? new ConfigNormalizer();
+		$this->tags       = $tags ?? new TagNormalizer();
+		$this->mail       = $mail ?? new MailTemplateService();
+		$this->moderation = $moderation ?? new ModerationService($this->normalizer, $this->tags, null, $this->mail);
 	}
 
 	/**
 	 * @throws \RuntimeException
 	 */
 	public function suggest(int $newsId, string $rawTags): TagSuggestion {
-		global $db, $member_id, $is_logged, $config;
+		global $member_id, $is_logged, $config;
 
 		$cfg = $this->normalizer->normalize(DataManager::getConfig('tags_add', null, 'tagsadd'));
 
@@ -63,24 +63,17 @@ final class SuggestService {
 
 		$userId = $logged ? (int) $member_id['user_id'] : 0;
 		$csv    = $this->tags->toCsv($parsed);
-		$date   = date('Y-m-d H:i:s');
 
-		$db->query(
-			'INSERT INTO ' . PREFIX . "_tags_add (news_id, user_id, tags, date) VALUES ('{$newsId}', '{$userId}', '"
-			. $db->safesql($csv) . "', '{$date}')",
-		);
-
-		$id = (int) $db->insert_id();
-		$entity = new TagSuggestion();
-		$entity->id = $id;
+		$entity          = new TagSuggestion();
 		$entity->news_id = $newsId;
 		$entity->user_id = $userId;
-		$entity->tags = $csv;
-		$entity->date = new \DateTimeImmutable($date);
+		$entity->tags    = $csv;
+		$entity->date    = new \DateTimeImmutable();
+		$entity->save();
 
 		$userName = $logged ? (string) ($member_id['name'] ?? __('Гость')) : __('Гость');
-		$vars = $this->moderation->buildVars($news, $userName, $entity);
-		$from = (string) ($cfg['mail_from'] !== '' ? $cfg['mail_from'] : ($config['admin_mail'] ?? 'admin'));
+		$vars     = $this->moderation->buildVars($news, $userName, $entity);
+		$from     = (string) ($cfg['mail_from'] !== '' ? $cfg['mail_from'] : ($config['admin_mail'] ?? 'admin'));
 
 		if(!empty($cfg['notify_admin']) && $cfg['admin_name'] !== '') {
 			$this->mail->sendPm(

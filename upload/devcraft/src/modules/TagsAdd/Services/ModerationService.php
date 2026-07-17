@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Services;
 
-use DevCraft\Core\Application;
 use DevCraft\Core\Support\DataManager;
 use DevCraft\Core\Support\ParseTemplateTags;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
@@ -39,8 +38,6 @@ final class ModerationService {
 	}
 
 	public function approve(int $id, ?string $tagsOverride = null): void {
-		global $db;
-
 		$entity = $this->find($id);
 
 		if($entity === null) {
@@ -54,12 +51,10 @@ final class ModerationService {
 			'{suggested_tags}' => $this->tags->toCsv($proposed),
 			'{decline_reason}' => '',
 		]);
-		$db->query('DELETE FROM ' . PREFIX . "_tags_add WHERE id='{$id}'");
+		$entity->delete();
 	}
 
 	public function reject(int $id, string $reason = ''): void {
-		global $db;
-
 		$entity = $this->find($id);
 
 		if($entity === null) {
@@ -77,28 +72,28 @@ final class ModerationService {
 			'{suggested_tags}' => $entity->tags,
 			'{decline_reason}' => $reason,
 		]);
-		$db->query('DELETE FROM ' . PREFIX . "_tags_add WHERE id='{$id}'");
+		$entity->delete();
 	}
 
 	public function delete(int $id): void {
-		global $db;
-
-		$db->query('DELETE FROM ' . PREFIX . "_tags_add WHERE id='{$id}'");
-	}
-
-	public function saveTags(int $id, string $tags): void {
-		global $db;
-
 		$entity = $this->find($id);
 
 		if($entity === null) {
 			throw new \RuntimeException(__('Предложение не найдено'));
 		}
 
-		$normalized = $this->tags->toCsv($this->tags->parse($tags));
-		$db->query(
-			'UPDATE ' . PREFIX . "_tags_add SET tags='" . $db->safesql($normalized) . "' WHERE id='{$id}'",
-		);
+		$entity->delete();
+	}
+
+	public function saveTags(int $id, string $tags): void {
+		$entity = $this->find($id);
+
+		if($entity === null) {
+			throw new \RuntimeException(__('Предложение не найдено'));
+		}
+
+		$entity->tags = $this->tags->toCsv($this->tags->parse($tags));
+		$entity->save();
 	}
 
 	/**
@@ -131,10 +126,7 @@ final class ModerationService {
 	}
 
 	private function find(int $id): ?TagSuggestion {
-		/** @var TagSuggestion|null $entity */
-		$entity = Application::instance()->database()->repository(TagSuggestion::class)->findOneById($id);
-
-		return $entity;
+		return TagSuggestion::findById($id);
 	}
 
 	/**
@@ -166,8 +158,8 @@ final class ModerationService {
 			return;
 		}
 
-		$news = $this->loadNewsRow($entity->news_id);
-		$vars = array_merge($this->buildVars($news, (string) ($user['name'] ?? ''), $entity), $extra);
+		$news  = $this->loadNewsRow($entity->news_id);
+		$vars  = array_merge($this->buildVars($news, (string) ($user['name'] ?? ''), $entity), $extra);
 		$title = $this->mail->render((string) $cfg[$titleKey], $vars, $news);
 		$body  = $this->mail->render((string) $cfg[$bodyKey], $vars, $news);
 		$from  = (string) ($cfg['mail_from'] !== '' ? $cfg['mail_from'] : ($config['admin_mail'] ?? 'admin'));
@@ -186,7 +178,7 @@ final class ModerationService {
 			'{suggested_tags}'          => $entity->tags,
 			'{moderate_suggested_tags}' => DataManager::normalizeUrl('?mod=tags_add', [
 				'action' => 'edit',
-				'id'     => $entity->id,
+				'id'     => $entity->id(),
 			]),
 			'{decline_reason}'          => '',
 		];
