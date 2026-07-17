@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Services;
 
+use DevCraft\Core\Application;
 use DevCraft\Core\Support\DataManager;
 use DevCraft\Core\Support\ParseTemplateTags;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
+use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
 
 /**
  * Модерация: approve / reject / delete.
@@ -51,7 +53,7 @@ final class ModerationService {
 			'{suggested_tags}' => $this->tags->toCsv($proposed),
 			'{decline_reason}' => '',
 		]);
-		$entity->delete();
+		$this->repo()->deleteEntity($entity);
 	}
 
 	public function reject(int $id, string $reason = ''): void {
@@ -72,7 +74,7 @@ final class ModerationService {
 			'{suggested_tags}' => $entity->tags,
 			'{decline_reason}' => $reason,
 		]);
-		$entity->delete();
+		$this->repo()->deleteEntity($entity);
 	}
 
 	public function delete(int $id): void {
@@ -82,7 +84,7 @@ final class ModerationService {
 			throw new \RuntimeException(__('Предложение не найдено'));
 		}
 
-		$entity->delete();
+		$this->repo()->deleteEntity($entity);
 	}
 
 	public function saveTags(int $id, string $tags): void {
@@ -93,7 +95,7 @@ final class ModerationService {
 		}
 
 		$entity->tags = $this->tags->toCsv($this->tags->parse($tags));
-		$entity->save();
+		$this->repo()->saveEntity($entity);
 	}
 
 	/**
@@ -126,7 +128,14 @@ final class ModerationService {
 	}
 
 	private function find(int $id): ?TagSuggestion {
-		return TagSuggestion::findById($id);
+		return $this->repo()->findOneById($id);
+	}
+
+	private function repo(): TagSuggestionRepository {
+		/** @var TagSuggestionRepository $repo */
+		$repo = Application::instance()->database()->repository(TagSuggestion::class);
+
+		return $repo;
 	}
 
 	/**

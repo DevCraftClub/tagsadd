@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Services;
 
+use DevCraft\Core\Application;
 use DevCraft\Core\Support\DataManager;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
+use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
 
 /**
  * Создание предложения тегов с сайта.
@@ -69,7 +71,7 @@ final class SuggestService {
 		$entity->user_id = $userId;
 		$entity->tags    = $csv;
 		$entity->date    = new \DateTimeImmutable();
-		$entity->save();
+		$this->repo()->saveEntity($entity);
 
 		$userName = $logged ? (string) ($member_id['name'] ?? __('Гость')) : __('Гость');
 		$vars     = $this->moderation->buildVars($news, $userName, $entity);
@@ -94,6 +96,13 @@ final class SuggestService {
 		}
 
 		return $entity;
+	}
+
+	private function repo(): TagSuggestionRepository {
+		/** @var TagSuggestionRepository $repo */
+		$repo = Application::instance()->database()->repository(TagSuggestion::class);
+
+		return $repo;
 	}
 
 }

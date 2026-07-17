@@ -45,6 +45,7 @@
 		return new Promise(function (resolve) {
 			var pending;
 			var settled = false;
+
 			function done(value) {
 				if (settled) {
 					return;
@@ -75,7 +76,7 @@
 							var el = document.getElementById('dc-tags-reject-reason');
 							pending = el ? String(el.value).trim() : '';
 							done(pending);
-						}
+						},
 					},
 					{
 						text: t('Отмена'),
@@ -83,9 +84,9 @@
 						onclick: function () {
 							pending = null;
 							done(null);
-						}
-					}
-				]
+						},
+					},
+				],
 			});
 		});
 	}
@@ -97,6 +98,7 @@
 		return new Promise(function (resolve) {
 			var pending;
 			var settled = false;
+
 			function done(value) {
 				if (settled) {
 					return;
@@ -125,7 +127,7 @@
 						onclick: function () {
 							pending = true;
 							done(true);
-						}
+						},
 					},
 					{
 						text: t('Отмена'),
@@ -133,9 +135,9 @@
 						onclick: function () {
 							pending = false;
 							done(false);
-						}
-					}
-				]
+						},
+					},
+				],
 			});
 		});
 	}
@@ -159,7 +161,7 @@
 			const id = parseInt(approve.dataset.id, 10);
 			const form = document.querySelector('.js-tags-edit-form');
 			const tags = form ? (form.querySelector('[name="tags"]') || {}).value : undefined;
-			post('approve', {id: id, tags: tags}).then(function (payload) {
+			post('approve', { id: id, tags: tags }).then(function (payload) {
 				if (payload && payload.success) {
 					removeRow(id);
 					if (form) {
@@ -176,7 +178,7 @@
 				if (reason === null) {
 					return;
 				}
-				post('reject', {id: id, reason: reason}).then(function (payload) {
+				post('reject', { id: id, reason: reason }).then(function (payload) {
 					if (payload && payload.success) {
 						removeRow(id);
 						if (document.querySelector('.js-tags-edit-form')) {
@@ -194,7 +196,7 @@
 				if (!ok) {
 					return;
 				}
-				post('delete', {id: id}).then(function (payload) {
+				post('delete', { id: id }).then(function (payload) {
 					if (payload && payload.success) {
 						removeRow(id);
 					}
@@ -210,7 +212,7 @@
 			}
 			post('save_suggestion', {
 				id: parseInt(form.dataset.id, 10),
-				tags: (form.querySelector('[name="tags"]') || {}).value || ''
+				tags: (form.querySelector('[name="tags"]') || {}).value || '',
 			});
 			return;
 		}
@@ -222,7 +224,7 @@
 				return;
 			}
 			const action = bulk.dataset.action;
-			const data = {action: action, ids: ids};
+			const data = { action: action, ids: ids };
 
 			const runBulk = function () {
 				post('bulk_moderation', data).then(function (payload) {
