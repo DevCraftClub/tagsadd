@@ -7,6 +7,11 @@
 	}
 
 	const Ajax = window.DevCraft.Ajax;
+	const Metro = window.DevCraft.Metro;
+
+	function t(key) {
+		return window.__ ? window.__(key) : key;
+	}
 
 	document.addEventListener('click', function (event) {
 		if (!event.target.closest('.js-settings-save') || !window.tinymce) {
@@ -33,8 +38,106 @@
 		}
 	}
 
+	/**
+	 * @returns {Promise<string|null>} причина или null при отмене
+	 */
 	function askReason() {
-		return window.prompt(window.__ ? window.__('Причина отклонения') : 'Причина отклонения', '') || '';
+		return new Promise(function (resolve) {
+			var pending;
+			var settled = false;
+			function done(value) {
+				if (settled) {
+					return;
+				}
+				settled = true;
+				resolve(value);
+			}
+
+			if (!Metro || typeof Metro.dialogCreate !== 'function') {
+				var fallback = window.prompt(t('Причина отклонения'), '');
+				done(fallback === null ? null : String(fallback).trim());
+				return;
+			}
+
+			Metro.dialogCreate({
+				title: t('Причина отклонения'),
+				content: '<textarea id="dc-tags-reject-reason" class="metro-input" rows="3" style="width:100%"></textarea>',
+				closeButton: true,
+				defaultActions: false,
+				onClose: function () {
+					done(pending === undefined ? null : pending);
+				},
+				customButtons: [
+					{
+						text: t('Отклонить'),
+						cls: 'warning js-dialog-close',
+						onclick: function () {
+							var el = document.getElementById('dc-tags-reject-reason');
+							pending = el ? String(el.value).trim() : '';
+							done(pending);
+						}
+					},
+					{
+						text: t('Отмена'),
+						cls: 'js-dialog-close',
+						onclick: function () {
+							pending = null;
+							done(null);
+						}
+					}
+				]
+			});
+		});
+	}
+
+	/**
+	 * @returns {Promise<boolean>}
+	 */
+	function confirmDelete() {
+		return new Promise(function (resolve) {
+			var pending;
+			var settled = false;
+			function done(value) {
+				if (settled) {
+					return;
+				}
+				settled = true;
+				resolve(value);
+			}
+
+			if (!Metro || typeof Metro.dialogCreate !== 'function') {
+				done(window.confirm(t('Удалить предложение? Это действие необратимо.')));
+				return;
+			}
+
+			Metro.dialogCreate({
+				title: t('Удалить предложение?'),
+				content: '<p>' + t('Действие необратимо. Пользователь не получит уведомление.') + '</p>',
+				closeButton: true,
+				defaultActions: false,
+				onClose: function () {
+					done(pending === true);
+				},
+				customButtons: [
+					{
+						text: t('Удалить'),
+						cls: 'alert js-dialog-close',
+						onclick: function () {
+							pending = true;
+							done(true);
+						}
+					},
+					{
+						text: t('Отмена'),
+						cls: 'js-dialog-close',
+						onclick: function () {
+							pending = false;
+							done(false);
+						}
+					}
+				]
+			});
+		});
 	}
 
 	document.addEventListener('click', function (event) {
@@ -69,23 +172,33 @@
 
 		if (reject) {
 			const id = parseInt(reject.dataset.id, 10);
-			post('reject', {id: id, reason: askReason()}).then(function (payload) {
-				if (payload && payload.success) {
-					removeRow(id);
-					if (document.querySelector('.js-tags-edit-form')) {
-						window.location.href = '?mod=tags_add&action=suggestions';
-					}
+			askReason().then(function (reason) {
+				if (reason === null) {
+					return;
 				}
+				post('reject', {id: id, reason: reason}).then(function (payload) {
+					if (payload && payload.success) {
+						removeRow(id);
+						if (document.querySelector('.js-tags-edit-form')) {
+							window.location.href = '?mod=tags_add&action=suggestions';
+						}
+					}
+				});
 			});
 			return;
 		}
 
 		if (del) {
 			const id = parseInt(del.dataset.id, 10);
-			post('delete', {id: id}).then(function (payload) {
-				if (payload && payload.success) {
-					removeRow(id);
+			confirmDelete().then(function (ok) {
+				if (!ok) {
+					return;
 				}
+				post('delete', {id: id}).then(function (payload) {
+					if (payload && payload.success) {
+						removeRow(id);
+					}
+				});
 			});
 			return;
 		}
@@ -105,19 +218,42 @@
 		if (bulk) {
 			const ids = selectedIds();
 			if (!ids.length) {
-				Ajax.notify(window.__ ? window.__('Внимание') : 'Внимание', window.__ ? window.__('Не выбраны записи') : 'Не выбраны записи', 'warning');
+				Ajax.notify(t('Внимание'), t('Не выбраны записи'), 'warning');
 				return;
 			}
 			const action = bulk.dataset.action;
 			const data = {action: action, ids: ids};
+
+			const runBulk = function () {
+				post('bulk_moderation', data).then(function (payload) {
+					if (payload && payload.success) {
+						ids.forEach(removeRow);
+					}
+				});
+			};
+
 			if (action === 'reject') {
-				data.reason = askReason();
+				askReason().then(function (reason) {
+					if (reason === null) {
+						return;
+					}
+					data.reason = reason;
+					runBulk();
+				});
+				return;
 			}
-			post('bulk_moderation', data).then(function (payload) {
-				if (payload && payload.success) {
-					ids.forEach(removeRow);
-				}
-			});
+
+			if (action === 'delete') {
+				confirmDelete().then(function (ok) {
+					if (!ok) {
+						return;
+					}
+					runBulk();
+				});
+				return;
+			}
+
+			runBulk();
 		}
 	});
 })(window);

@@ -8,6 +8,7 @@ use DLEPlugins;
 use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Application;
 use DevCraft\Core\Admin\FilterFormService;
+use DevCraft\Core\Support\ParseTemplateTags;
 use DevCraft\Types\FilterSchema;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
 use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
@@ -45,16 +46,56 @@ final class SuggestionsPage extends AbstractPage {
 			$schema->defaultOrder,
 		);
 
+		$newsIds = [];
+		$userIds = [];
+
+		foreach($result['items'] as $item) {
+			/** @var TagSuggestion $item */
+			if($item->news_id > 0) {
+				$newsIds[$item->news_id] = $item->news_id;
+			}
+
+			if($item->user_id > 0) {
+				$userIds[$item->user_id] = $item->user_id;
+			}
+		}
+
+		$newsById = $this->loadNewsMap(array_values($newsIds));
+		$userById = $this->loadUserNameMap(array_values($userIds));
+
 		$rows = [];
 
 		foreach($result['items'] as $item) {
 			/** @var TagSuggestion $item */
+			$news = $newsById[$item->news_id] ?? [];
+
+			if($item->user_id <= 0) {
+				$userName = __('Гость');
+			} else {
+				$userName = $userById[$item->user_id] ?? ('#' . $item->user_id);
+			}
+
+			$newsTitle = $news !== []
+				? stripslashes((string) ($news['title'] ?? ''))
+				: '';
+
+			if($newsTitle === '') {
+				$newsTitle = '#' . $item->news_id;
+			}
+
 			$rows[] = [
-				'id'      => $item->id,
-				'news_id' => $item->news_id,
-				'user_id' => $item->user_id,
-				'tags'    => $item->tags,
-				'date'    => $item->date instanceof \DateTimeInterface
+				'id'            => $item->id,
+				'news_id'       => $item->news_id,
+				'news_title'    => $newsTitle,
+				'news_view_url' => $news !== [] ? ParseTemplateTags::fullLink($news) : '#',
+				'news_edit_url' => '?mod=editnews&action=editnews&id=' . $item->news_id,
+				'user_id'       => $item->user_id,
+				'user_name'     => $userName,
+				'user_edit_url' => $item->user_id > 0
+					? '?mod=editusers&action=edituser&id=' . $item->user_id
+					: '',
+				'tags'          => $item->tags,
+				'date'          => $item->date instanceof \DateTimeInterface
 					? $item->date->format('Y-m-d H:i:s')
 					: (string) $item->date,
 			];
@@ -80,6 +121,50 @@ final class SuggestionsPage extends AbstractPage {
 				'query'          => $query,
 			],
 		];
+	}
+
+	/**
+	 * @param list<int> $ids
+	 *
+	 * @return array<int, array<string, mixed>>
+	 */
+	private function loadNewsMap(array $ids): array {
+		global $db;
+
+		if($ids === []) {
+			return [];
+		}
+
+		$safe = implode(',', array_map('intval', $ids));
+		$db->query(
+			'SELECT id, title, alt_name, category, date FROM ' . PREFIX . "_post WHERE id IN ({$safe})",
+		);
+
+		$map = [];
+
+		while($row = $db->get_row()) {
+			$map[(int) $row['id']] = $row;
+		}
+
+		return $map;
+	}
+
+	/**
+	 * @param list<int> $ids
+	 *
+	 * @return array<int, string>
+	 */
+	private function loadUserNameMap(array $ids): array {
+		$dle  = Application::instance()->dleData();
+		$map  = [];
+
+		foreach($ids as $id) {
+			$user = $dle->user(id: $id);
+			$name = trim((string) ($user['name'] ?? ''));
+			$map[$id] = $name !== '' ? $name : ('#' . $id);
+		}
+
+		return $map;
 	}
 
 	/**

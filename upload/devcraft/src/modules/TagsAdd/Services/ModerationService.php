@@ -51,8 +51,8 @@ final class ModerationService {
 		$proposed = $this->tags->parse($tagsOverride !== null ? $tagsOverride : $entity->tags);
 		$this->sync->apply($entity->news_id, $proposed, $config);
 		$this->notifyUser($entity, 'onadd', 'user_mail_approve_title', 'user_mail_approve_body', [
-			'%tags%'   => $this->tags->toCsv($proposed),
-			'%reason%' => '',
+			'{suggested_tags}' => $this->tags->toCsv($proposed),
+			'{decline_reason}' => '',
 		]);
 		$db->query('DELETE FROM ' . PREFIX . "_tags_add WHERE id='{$id}'");
 	}
@@ -66,9 +66,16 @@ final class ModerationService {
 			throw new \RuntimeException(__('Предложение не найдено'));
 		}
 
+		$cfg    = $this->config();
+		$reason = trim($reason);
+
+		if($reason === '') {
+			$reason = trim((string) ($cfg['decline_reason_default'] ?? ''));
+		}
+
 		$this->notifyUser($entity, 'ondel', 'user_mail_reject_title', 'user_mail_reject_body', [
-			'%tags%'   => $entity->tags,
-			'%reason%' => $reason,
+			'{suggested_tags}' => $entity->tags,
+			'{decline_reason}' => $reason,
 		]);
 		$db->query('DELETE FROM ' . PREFIX . "_tags_add WHERE id='{$id}'");
 	}
@@ -175,15 +182,13 @@ final class ModerationService {
 	 */
 	public function buildVars(array $news, string $userName, TagSuggestion $entity): array {
 		return [
-			'%title%'     => ParseTemplateTags::title($news),
-			'%user%'      => $userName,
-			'%link%'      => ParseTemplateTags::fullLink($news),
-			'%tags%'      => $entity->tags,
-			'%adminlink%' => DataManager::normalizeUrl('?mod=tags_add', [
+			'{user}'                    => $userName,
+			'{suggested_tags}'          => $entity->tags,
+			'{moderate_suggested_tags}' => DataManager::normalizeUrl('?mod=tags_add', [
 				'action' => 'edit',
 				'id'     => $entity->id,
 			]),
-			'%reason%'    => '',
+			'{decline_reason}'          => '',
 		];
 	}
 

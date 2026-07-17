@@ -15,7 +15,7 @@ final class MailTemplateService {
 	/**
 	 * Рендер шаблона: теги новости DLE + модульные плейсхолдеры.
 	 *
-	 * @param array<string, string> $vars Модульные %user% / %tags% / …
+	 * @param array<string, string> $vars Модульные {user} / {suggested_tags} / …
 	 * @param array<string, mixed>  $news Строка post (если есть — ParseTemplateTags)
 	 */
 	public function render(string $template, array $vars, array $news = []): string {
@@ -72,11 +72,54 @@ final class MailTemplateService {
 			require_once DLEPlugins::Check(ENGINE_DIR . '/classes/parse.class.php');
 		}
 
-		$parse = new \ParseFilter();
-		$parse->safe_mode = true;
-		$message = $db->safesql($parse->BB_Parse($parse->process(trim($body)), false));
-		$subj    = $db->safesql($subject);
-		$time    = time();
+		$wysiwyg = !empty($config['allow_pm_wysiwyg']);
+
+		if($wysiwyg) {
+			// Как engine/ajax/pm.php
+			$allowedTags = [
+				'dlehide[class|data-allowed-groups|contenteditable]',
+				'div[id|align|style|class|data-commenttime|data-commentuser|data-commentid|data-commentpostid|data-commentgast|contenteditable]',
+				'span[style|class|data-userurl|data-username|contenteditable]',
+				'p[align|style|class]',
+				'pre[class]',
+				'code',
+				'br',
+				'strong',
+				'em',
+				'ul',
+				'li',
+				'ol',
+				'b',
+				'u',
+				'i',
+				's',
+				'hr',
+				'a[href|target|style|class|title|data-encode]',
+			];
+			$parse          = new \ParseFilter($allowedTags);
+			$parse->wysiwyg = true;
+		} else {
+			$parse = new \ParseFilter();
+		}
+
+		$parse->safe_mode   = true;
+		$parse->remove_html = false;
+		$body               = trim($body);
+
+		// Шаблоны с \n + HTML-ссылками: без br строки схлопываются в HTML-ЛС
+		if($wysiwyg && $body !== '' && !preg_match('/<(p|div|br|li|ul|ol)\b/i', $body)) {
+			$body = nl2br($body, false);
+		}
+
+		if($wysiwyg) {
+			$message = $db->safesql($parse->BB_Parse($parse->process($body)));
+		} else {
+			$parse->allowbbcodes = false;
+			$message             = $db->safesql($parse->BB_Parse($parse->process($body), false));
+		}
+
+		$subj = $db->safesql($subject);
+		$time = time();
 
 		$db->query(
 			'INSERT INTO ' . USERPREFIX

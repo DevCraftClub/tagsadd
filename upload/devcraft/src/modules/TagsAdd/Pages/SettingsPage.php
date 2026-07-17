@@ -89,16 +89,43 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 
 		return [
 			'admin_name'        => $userOptions,
+			'mail_from'         => $userOptions,
 			'user_inform_field' => $userXfieldOptions,
 			'xfield_name'       => $postXfieldOptions,
 		];
 	}
 
 	private function buildPmEditorScript(): string {
-		global $config;
+		global $config, $member_id, $user_group, $lang, $tpl;
 
 		if(empty($config['allow_pm_wysiwyg'])) {
 			return '';
+		}
+
+		if(!is_array($member_id ?? null)) {
+			$member_id = ['user_group' => 1, 'user_id' => 1, 'name' => ''];
+		}
+
+		if(!is_array($user_group ?? null) || $user_group === []) {
+			$user_group = [
+				1 => ['allow_url' => 1, 'allow_image' => 1, 'group_name' => 'Admin'],
+			];
+		}
+
+		if(!is_array($lang ?? null)) {
+			$lang = ['language_code' => 'ru', 'direction' => 'ltr'];
+		} else {
+			$lang['language_code'] = $lang['language_code'] ?? 'ru';
+			$lang['direction']     = $lang['direction'] ?? 'ltr';
+		}
+
+		if(!isset($tpl) || !is_object($tpl)) {
+			if(!class_exists('dle_template', false)) {
+				require_once DLEPlugins::Check(ENGINE_DIR . '/classes/templates.class.php');
+			}
+			$tpl = new \dle_template();
+			$tpl->smartphone = false;
+			$tpl->tablet     = false;
 		}
 
 		$is_pm_ajax_mode        = true;
