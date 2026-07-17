@@ -1,0 +1,9 @@
+{
+  "version": "200.3.0",
+  "status": "dev",
+  "dle": ["20.0"],
+  "php": ["8.3"],
+  "name": "TagsAdd",
+  "description": "Предложение тегов к новостям и модерация очереди для DLE 20 / DevCraft",
+  "devcraft_admin": "200.4.1"
+}

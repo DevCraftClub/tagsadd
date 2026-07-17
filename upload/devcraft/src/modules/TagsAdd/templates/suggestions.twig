@@ -1,0 +1,60 @@
+{% import 'core/includes/form/_macros/_field.twig' as field %}
+
+<h2>{{ page_title }}</h2>
+
+{% include 'core/includes/form/filter_bar.twig' with {
+    mod: mod,
+    action: action,
+    filter_catalog: filter_catalog,
+    filter_rules: filter_rules,
+    filter_chips: filter_chips,
+    order: order,
+    sort: sort
+} only %}
+
+<p class="text-small" id="tags-add-total">{{ total }} {{ 'записей'|trans }}</p>
+
+<div class="mb-3 d-flex flex-wrap gap-2">
+    <button type="button" class="button success js-tags-bulk" data-action="approve">{{ 'Одобрить выбранные'|trans }}</button>
+    <button type="button" class="button warning js-tags-bulk" data-action="reject">{{ 'Отклонить выбранные'|trans }}</button>
+    <button type="button" class="button alert js-tags-bulk" data-action="delete">{{ 'Удалить выбранные'|trans }}</button>
+</div>
+
+{% if items|length > 0 %}
+    <table class="table striped row-hover border responsive-md mt-2" id="tags-add-suggestions">
+        <thead>
+        <tr>
+            <th><input type="checkbox" class="js-tags-check-all"></th>
+            <th>#</th>
+            <th>{{ 'Новость'|trans }}</th>
+            <th>{{ 'Пользователь'|trans }}</th>
+            <th>{{ 'Теги'|trans }}</th>
+            <th>{{ 'Дата'|trans }}</th>
+            <th>{{ 'Действия'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr data-id="{{ item.id }}">
+                <td><input type="checkbox" class="js-tags-row" value="{{ item.id }}"></td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.news_id }}</td>
+                <td>{{ item.user_id }}</td>
+                <td>{{ item.tags }}</td>
+                <td>{{ item.date }}</td>
+                <td>
+                    <div class="d-flex flex-wrap gap-1">
+                        <a class="button small" href="?mod=tags_add&action=edit&id={{ item.id }}">{{ 'Изменить'|trans }}</a>
+                        <button type="button" class="button small success js-tags-approve" data-id="{{ item.id }}">{{ 'Одобрить'|trans }}</button>
+                        <button type="button" class="button small warning js-tags-reject" data-id="{{ item.id }}">{{ 'Отклонить'|trans }}</button>
+                        <button type="button" class="button small alert js-tags-delete" data-id="{{ item.id }}">{{ 'Удалить'|trans }}</button>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {{ field.pages(page_urls, current_page) }}
+{% else %}
+    <p class="fg-gray">{{ 'Очередь пуста.'|trans }}</p>
+{% endif %}

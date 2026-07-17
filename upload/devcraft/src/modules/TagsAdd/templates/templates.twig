@@ -1,0 +1,37 @@
+<h2>{{ page_title }}</h2>
+
+<div class="remark mb-4">
+    <h4 class="border-bottom bd-default pb-2 mb-3">{{ '1. Кнопка в нужном месте шаблона'|trans }}</h4>
+    <p class="mb-2">{{ 'Этот include выводит только кнопку открытия модального окна. Обычно его ставят в'|trans }} <code>shortstory.tpl</code> {{ 'и/или'|trans }} <code>fullstory.tpl</code>.</p>
+    <pre class="mt-2"><code>{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=button"}</code></pre>
+</div>
+
+<div class="remark mb-4">
+    <h4 class="border-bottom bd-default pb-2 mb-3">{{ '2. HTML модального окна'|trans }}</h4>
+    <p class="mb-2">{{ 'Этот include выводит разметку диалога. Разместите его на той же странице новости, где есть кнопка.'|trans }}</p>
+    <pre class="mt-2"><code>{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=modal"}</code></pre>
+</div>
+
+<div class="remark mb-4">
+    <h4 class="border-bottom bd-default pb-2 mb-3">{{ '3. CSS стили модуля'|trans }}</h4>
+    <p class="mb-2">{{ 'Подключите стили один раз в общем шаблоне сайта, например в'|trans }} <code>main.tpl</code> {{ 'перед закрывающим'|trans }} <code>&lt;/head&gt;</code>.</p>
+    <pre class="mt-2"><code>{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=css"}</code></pre>
+</div>
+
+<div class="remark mb-4">
+    <h4 class="border-bottom bd-default pb-2 mb-3">{{ '4. JS логика и публичный AJAX-клиент'|trans }}</h4>
+    <p class="mb-2">{{ 'Этот include подключает DevCraft public client и скрипт модуля. Его лучше добавить один раз перед'|trans }} <code>&lt;/body&gt;</code> {{ 'в общем шаблоне сайта.'|trans }}</p>
+    <pre class="mt-2"><code>{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=js"}</code></pre>
+</div>
+
+<div class="remark success">
+    <h4 class="border-bottom bd-default pb-2 mb-3">{{ 'Рекомендуемая схема подключения'|trans }}</h4>
+    <p class="mb-2">{{ 'Если модуль нужен на странице новости целиком, обычно хватает такой схемы:'|trans }}</p>
+    <ul class="simple-list mb-2">
+        <li><code>focus=css</code> {{ 'один раз в'|trans }} <code>main.tpl</code> {{ 'внутри'|trans }} <code>&lt;head&gt;</code>.</li>
+        <li><code>focus=js</code> {{ 'один раз в'|trans }} <code>main.tpl</code> {{ 'перед'|trans }} <code>&lt;/body&gt;</code>.</li>
+        <li><code>focus=button</code> {{ 'в месте показа кнопки в шаблоне новости.'|trans }}</li>
+        <li><code>focus=modal</code> {{ 'рядом с кнопкой или внизу того же шаблона новости.'|trans }}</li>
+    </ul>
+    <p class="mb-0">{{ 'Если предложения разрешены только авторизованным, для гостей runtime ничего не выведет.'|trans }}</p>
+</div>

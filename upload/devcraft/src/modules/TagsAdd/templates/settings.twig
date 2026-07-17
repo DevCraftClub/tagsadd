@@ -1,0 +1,19 @@
+{% include 'pages/settings.twig' %}
+
+{% if pm_wysiwyg and pm_editor_script %}
+<script src="{{ dle_home }}public/js/jquery3.js"></script>
+<script src="{{ dle_home }}public/editor/tiny_mce/tinymce.min.js"></script>
+<script>
+    var dle_root = '{{ dle_home|e('js') }}';
+    var dle_login_hash = '{{ dle_login_hash|e('js') }}';
+    var dle_skin = '{{ dle_skin|e('js') }}';
+    window.DLEPasteSafeText = window.DLEPasteSafeText || function (args) { return args; };
+</script>
+<script>
+    jQuery(function ($) {
+        setTimeout(function () {
+            {{ pm_editor_script|raw }}
+        }, 100);
+    });
+</script>
+{% endif %}

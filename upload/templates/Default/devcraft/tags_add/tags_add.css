@@ -1,0 +1,18 @@
+.tags-add-label {
+	display: block;
+	margin-bottom: .5rem;
+	font-weight: 600;
+}
+
+.tags-add-input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.tags-add-popup.ui-dialog .ui-dialog-content {
+	padding: 1em;
+}
+
+.tags-add-open {
+	cursor: pointer;
+}

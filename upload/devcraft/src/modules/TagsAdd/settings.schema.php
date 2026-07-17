@@ -1,0 +1,78 @@
+<?php
+
+declare(strict_types=1);
+
+use DevCraft\Core\Enums\FormLayout;
+use DevCraft\Form\FormSchemaBuilder;
+
+/**
+ * Схема настроек TagsAdd.
+ */
+return FormSchemaBuilder::create('tags_add')
+	->layout(FormLayout::TABS)
+	->section(__('Основные'))
+		->checkbox('allow_guests', __('Разрешить предложения гостям'))
+			->description(__('Если выключено, форму предложения тегов увидят только авторизованные пользователи.'))
+			->default(false)
+		->text('button_label', __('Текст кнопки на новости'))
+			->description(__('Надпись на кнопке, которая открывает окно отправки тегов на сайте.'))
+			->default(__('Предложить теги'))
+		->checkbox('notify_admin', __('PM админу при новом предложении'))
+			->description(__('Отправлять ли личное сообщение администратору после нового предложения тегов.'))
+			->default(true)
+		->select('admin_name', __('Ник получателя PM (админ)'))
+			->description(__('Пользователь DLE, который будет получать уведомления о новых предложениях.'))
+			->options([])
+			->default('')
+		->text('mail_from', __('Имя отправителя PM'))
+			->description(__('Имя, от которого будут отправляться служебные личные сообщения модуля.'))
+			->default('')
+		->select('user_inform_field', __('Имя user-xfield с prefs уведомлений'))
+			->description(__('Поле профиля пользователя с настройкой уведомлений. Допустимые значения: onsend / onadd / ondel / all / none.'))
+			->options([])
+			->default('')
+	->section(__('Вставка при одобрении'))
+		->select('insert_target', __('Куда вставлять'))
+			->description(__('Определяет, куда записывать одобренные теги: в стандартные теги новости или в выбранное доп. поле.'))
+			->options([
+				'tags'   => __('Теги новости'),
+				'xfield' => __('Доп. поле'),
+			])
+			->default('tags')
+		->select('xfield_name', __('Имя доп. поля'))
+			->description(__('Используется только если выше выбрана вставка в доп. поле новости.'))
+			->options([])
+			->default('')
+		->checkbox('xfield_link', __('Писать также в xfsearch'))
+			->description(__('Дополнительно синхронизирует значение в служебное поле xfsearch для поиска и стандартной логики DLE.'))
+			->default(false)
+	->section(__('Шаблоны PM'))
+		->text('admin_mail_title', __('Админ: тема'))
+			->description(__('Тема ЛС администратору. Доступны теги новости DLE ({title}, {full-link}, …) и %user% %tags% %adminlink%.'))
+			->default('')
+		->textarea('admin_mail_body', __('Админ: текст'))
+			->description(__('Текст уведомления администратору. Все теги short/full DLE + %user% %tags% %adminlink% %reason%.'))
+			->metro(['class' => 'ajaxwysiwygeditor dc-pm-editor'])
+			->default('')
+		->text('user_mail_send_title', __('Отправитель при предложении: тема'))
+			->description(__('Тема ЛС пользователю после отправки предложения. Теги новости DLE и модульные %…%.'))
+			->default('')
+		->textarea('user_mail_send_body', __('Отправитель при предложении: текст'))
+			->description(__('Текст уведомления пользователю о том, что предложение тегов отправлено на модерацию.'))
+			->metro(['class' => 'ajaxwysiwygeditor dc-pm-editor'])
+			->default('')
+		->text('user_mail_approve_title', __('При одобрении: тема'))
+			->description(__('Тема ЛС при одобрении. Теги новости DLE и %tags% %user%.'))
+			->default('')
+		->textarea('user_mail_approve_body', __('При одобрении: текст'))
+			->description(__('Текст уведомления об одобрении. Плейсхолдеры: теги DLE + %user% %tags% %link% %adminlink% %reason%.'))
+			->metro(['class' => 'ajaxwysiwygeditor dc-pm-editor'])
+			->default('')
+		->text('user_mail_reject_title', __('При отказе: тема'))
+			->description(__('Тема ЛС при отклонении.'))
+			->default('')
+		->textarea('user_mail_reject_body', __('При отказе: текст'))
+			->description(__('Текст уведомления об отклонении. Теги DLE + %title% %user% %link% %tags% %adminlink% %reason%'))
+			->metro(['class' => 'ajaxwysiwygeditor dc-pm-editor'])
+			->default('')
+	->build();
