@@ -18,6 +18,18 @@ if(!defined('DATALIFEENGINE')) {
 	die('Hacking attempt!');
 }
 
+// {include} на фронте идёт без admin bootstrap — __() из DevCraft может отсутствовать.
+if(!function_exists('__')) {
+	/**
+	 * Fallback без DevCraft: возвращает исходную фразу (ru = source).
+	 *
+	 * @param   array<string, mixed>  $params
+	 */
+	function __(string $phrase, array $params = [], int $count = 0): string {
+		return $phrase;
+	}
+}
+
 $focus  = isset($focus) ? (string) $focus : 'button';
 $newsid = isset($newsid) ? (int) $newsid : (isset($news_id) ? (int) $news_id : 0);
 

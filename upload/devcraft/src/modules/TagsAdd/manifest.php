@@ -38,7 +38,7 @@ return [
 	'code'      => 'tags_add',
 	'meta'      => [
 		'name'        => 'TagsAdd',
-		'version'     => '200.3.0',
+		'version'     => '200.3.1',
 		'description' => __('Предложение тегов к новостям и модерация очереди'),
 		'icon'        => 'mif-price-tags',
 		'docsLink'    => 'https://readme.devcraft.club/dev/usertags/',
