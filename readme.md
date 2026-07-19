@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Версия | **200.3.0** |
+| Версия | **200.3.1** |
 | Совместимость | DevCraft Admin ≥ **200.4.1**, DLE **20.0** |
 | Сайт | https://devcraft.club/downloads/polzovatelskie-tegi.12/ |
 | Документация | https://readme.devcraft.club/dev/usertags/ |

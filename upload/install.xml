@@ -2,7 +2,7 @@
 <name>TagsAdd</name>
 <description>Предложение тегов к новостям и модерация очереди</description>
 <icon>engine/inc/tags_add.php</icon>
-<version>200.3.0</version>
+<version>200.3.1</version>
 <dleversion>20.0</dleversion>
 <versioncompare>greater</versioncompare>
 <upgradeurl/>
@@ -12,22 +12,22 @@
 <mysqlinstall>
 	<![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.0', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.0', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
 ]]>
 </mysqlinstall>
 <mysqlupgrade>
 	<![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.0', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.0', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
 ]]>
 </mysqlupgrade>
 <mysqlenable>
 	<![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.0', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.0', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
 ]]>
 </mysqlenable>
 <mysqldisable>

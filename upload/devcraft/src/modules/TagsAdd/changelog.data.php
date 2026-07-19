@@ -12,6 +12,20 @@ declare(strict_types=1);
  */
 return [
 	[
+		'version' => '200.3.1',
+		'date'    => '2026-07-19',
+		'changes' => [
+			'fixed'   => [
+				__('Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.'),
+				__('XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.'),
+			],
+			'changed' => [
+				__('Рендер button/modal через нативный $tpl и шаблоны темы.'),
+				__('Блок author в manifest убран — используется дефолт ModuleManifest.'),
+			],
+		],
+	],
+	[
 		'version' => '200.3.0',
 		'date'    => '2026-07-17',
 		'changes' => [
