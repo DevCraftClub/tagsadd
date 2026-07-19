@@ -1,0 +1,11 @@
+*.zip
+temp/
+.cursor/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.legacy_workspace_backup/
+Untitled
+.code-review-graph/
+graphify-out/
