@@ -19,6 +19,7 @@ final class DashboardPage extends AbstractPage {
 		$context   = $this->adminContext();
 		$changelog = $plugin?->changelog() ?? [];
 		$latest    = isset($changelog[0])? $changelog[0]->toArray() : NULL;
+		$mod       = $plugin?->mod() ?? 'tags_add';
 		$menu      = [];
 
 		if($latest !== NULL) {
@@ -51,13 +52,13 @@ final class DashboardPage extends AbstractPage {
 						'docs_link'   => (string) ($meta['docsLink'] ?? ''),
 						'site_link'   => (string) ($meta['siteLink'] ?? ''),
 						'site_id'     => (int) ($meta['siteId'] ?? 0),
-						'code'        => (string) ($meta['module_code'] ?? 'tags_add'),
+						'code'        => (string) ($meta['module_code'] ?? $mod),
 					],
 					'author'           => $context->author()->toArray(),
 					'lic_link'         => $context->licLink(),
 					'menu'             => $menu,
 					'changelog_latest' => $latest,
-					'changelog_url'    => '?mod=tags_add&action=changelog',
+					'changelog_url'    => '?mod=' . $mod . '&action=changelog',
 					'show_assets'      => false,
 					'show_update'      => false,
 				],

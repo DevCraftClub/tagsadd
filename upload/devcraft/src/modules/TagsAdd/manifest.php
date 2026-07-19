@@ -19,6 +19,19 @@ use DevCraft\Modules\TagsAdd\Ajax\BulkModerationHandler;
 
 /**
  * Манифест модуля TagsAdd.
+ *
+ * Гидрируется в `ModuleManifest` через `ModuleManifest::fromManifest()` — сам
+ * файл возвращает массив в форме, ожидаемой этим методом.
+ *
+ * @return array{
+ *     mod: string,
+ *     code?: string,
+ *     meta?: array<string, mixed>,
+ *     menu?: list<AdminLink>,
+ *     ajax?: array{controller?: string, methods?: array<string, class-string>},
+ *     changelog?: array<int, array<string, mixed>>,
+ *     assets?: array<string, list<string>>,
+ * }
  */
 return [
 	'mod'       => 'tags_add',
@@ -31,13 +44,6 @@ return [
 		'docsLink'    => 'https://readme.devcraft.club/dev/usertags/',
 		'siteLink'    => 'https://devcraft.club/downloads/polzovatelskie-tegi.12/',
 		'siteId'      => 12,
-		'author'      => [
-			'name'     => 'Maxim Harder',
-			'contacts' => [
-				['name' => __('E-Mail'), 'link' => 'mailto:dev@devcraft.club'],
-				['name' => __('Telegram'), 'link' => 'https://t.me/MaHarder'],
-			],
-		],
 	],
 	'menu'      => [
 		AdminLink::page(__('Главная'), 'dashboard', DashboardPage::class, 'mif-home', 'tags_add'),

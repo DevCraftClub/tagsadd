@@ -189,7 +189,7 @@ final class SuggestionsPage extends AbstractPage {
 
 	private function loadFilterSchema(): FilterSchema {
 		/** @var array<string, mixed> $raw */
-		$raw = require DLEPlugins::Check(__DIR__ . '/../filter.schema.php');
+		$raw = require DLEPlugins::Check(__DIR__ . '/../Filter/filter.schema.php');
 
 		return FilterSchema::fromArray($raw);
 	}

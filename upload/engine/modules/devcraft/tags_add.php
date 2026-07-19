@@ -6,6 +6,12 @@ declare(strict_types=1);
  * Рендер кнопки / модалки / assets TagsAdd для fullstory.
  *
  * {include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=button|modal|js|css"}
+ *
+ * DLE подключает этот файл через dle_template::load_file(), который перед
+ * include клонирует вызывающий $tpl (см. templates.class.php) — внутри
+ * доступен настоящий dle_template, а не самодельный strtr()-рендер.
+ *
+ * @var \dle_template $tpl
  */
 
 if(!defined('DATALIFEENGINE')) {
@@ -20,7 +26,7 @@ if($newsid <= 0) {
 }
 
 $configPath  = ROOT_DIR . '/devcraft/config/tags_add.json';
-$buttonLabel = 'Предложить теги';
+$buttonLabel = __('Предложить теги');
 $allowGuests = false;
 
 if(is_file($configPath)) {
@@ -40,57 +46,45 @@ if(!$logged && !$allowGuests) {
 	return;
 }
 
-$skin   = (string) ($config['skin'] ?? 'Default');
-$tplDir = ROOT_DIR . '/templates/' . $skin . '/devcraft/tags_add';
+$skin = totranslit((string) ($config['skin'] ?? 'Default'), false, false);
 
-if(!is_dir($tplDir)) {
-	$skin   = 'Default';
-	$tplDir = ROOT_DIR . '/templates/Default/devcraft/tags_add';
+if(!is_dir(ROOT_DIR . '/templates/' . $skin . '/devcraft/tags_add')) {
+	$skin = 'Default';
 }
 
-$themeUrl = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/templates/' . $skin;
-$homeUrl  = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/';
-$modUrl   = $themeUrl . '/devcraft/tags_add';
+$tpl->dir = ROOT_DIR . '/templates/' . $skin;
 
-$replacements = [
-	'{news-id}'      => (string) $newsid,
-	'{button-label}' => htmlspecialchars($buttonLabel, ENT_QUOTES, 'UTF-8'),
-	'{THEME}'        => $themeUrl,
-	'{MOD_URL}'      => $modUrl,
-	'{HOME}'         => $homeUrl,
-	'{AJAX}'         => $homeUrl . 'devcraft/ajax.php',
-	'{DC_PUBLIC}'    => $homeUrl . 'devcraft/src/templates/core/assets/js/dc_public.js',
-	'{user-hash}'    => htmlspecialchars((string) ($dle_login_hash ?? ''), ENT_QUOTES, 'UTF-8'),
-];
+$homeUrl = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/';
+$modUrl  = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/templates/' . $skin . '/devcraft/tags_add';
+$ajaxUrl = $homeUrl . 'devcraft/ajax.php';
+$dcPublicUrl = $homeUrl . 'devcraft/src/templates/core/assets/js/dc_public.js';
 
-$renderTpl = static function (string $file) use ($tplDir, $replacements): string {
-	$path = $tplDir . '/' . $file;
-
-	if(!is_file($path)) {
-		return '';
-	}
-
-	return strtr((string) file_get_contents($path), $replacements);
-};
+$tpl->set('{news-id}', (string) $newsid);
+$tpl->set('{button-label}', htmlspecialchars($buttonLabel, ENT_QUOTES, 'UTF-8'));
+$tpl->set('{tags-label}', __('Теги (через запятую)'));
+$tpl->set('{user-hash}', htmlspecialchars((string) ($dle_login_hash ?? ''), ENT_QUOTES, 'UTF-8'));
 
 switch($focus) {
 	case 'modal':
-		echo $renderTpl('modal.tpl');
+		$tpl->load_template('devcraft/tags_add/modal.tpl');
+		$tpl->compile('content');
+		echo $tpl->result['content'];
 		break;
 	case 'css':
 		echo '<link rel="stylesheet" href="' . htmlspecialchars($modUrl . '/tags_add.css', ENT_QUOTES, 'UTF-8') . '">' . "\n";
 		break;
 	case 'js':
-		echo '<meta name="dc-ajax-base" content="' . htmlspecialchars($replacements['{AJAX}'], ENT_QUOTES, 'UTF-8') . '">' . "\n";
-		echo '<script src="' . htmlspecialchars($replacements['{DC_PUBLIC}'], ENT_QUOTES, 'UTF-8') . '"></script>' . "\n";
-		// JS лежит в templates/.../devcraft/tags_add/, но прямой HTTP к .js там даёт 403 (правила темы/openresty).
-		$jsPath = $tplDir . '/tags_add.js';
+		echo '<meta name="dc-ajax-base" content="' . htmlspecialchars($ajaxUrl, ENT_QUOTES, 'UTF-8') . '">' . "\n";
+		echo '<script src="' . htmlspecialchars($dcPublicUrl, ENT_QUOTES, 'UTF-8') . '"></script>' . "\n";
+		$jsPath = $tpl->dir . '/devcraft/tags_add/tags_add.js';
 		if(is_file($jsPath)) {
-			echo "<script>\n" . (string) file_get_contents($jsPath) . "\n</script>\n";
+			echo "<script>\n" . file_get_contents($jsPath) . "\n</script>\n";
 		}
 		break;
 	case 'button':
 	default:
-		echo $renderTpl('button.tpl');
+		$tpl->load_template('devcraft/tags_add/button.tpl');
+		$tpl->compile('content');
+		echo $tpl->result['content'];
 		break;
 }

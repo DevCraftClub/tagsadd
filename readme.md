@@ -2,6 +2,13 @@
 
 Модуль предложения тегов к новостям для DevCraft Admin и DataLife Engine 20.0.
 
+| | |
+|---|---|
+| Версия | **200.3.0** |
+| Совместимость | DevCraft Admin ≥ **200.4.1**, DLE **20.0** |
+| Сайт | https://devcraft.club/downloads/polzovatelskie-tegi.12/ |
+| Документация | https://readme.devcraft.club/dev/usertags/ |
+
 ## Установка
 
 1. Установите `DevCraft Admin` версии `200.4.1` или новее (нужны `dc_public.js` и `controller=public`).

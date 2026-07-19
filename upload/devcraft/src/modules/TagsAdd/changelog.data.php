@@ -2,6 +2,14 @@
 
 declare(strict_types=1);
 
+/**
+ * Журнал изменений TagsAdd.
+ *
+ * Гидрируется в `Changelog[]` через `Changelog::listFromManifest()` /
+ * `ModuleManifest::fromManifest()` — сам файл возвращает массив массивов.
+ *
+ * @return array<int, array{version: string, date?: string, changes?: array<string, list<string>>}>
+ */
 return [
 	[
 		'version' => '200.3.0',
