@@ -4,35 +4,35 @@
     <body>
       <trans-unit id="15a6f6bfe6180a7796681f2155c06e6d">
         <source>Причина не указана</source>
-        <target state="needs-translation">Причина не указана</target>
+        <target state="translated">Причину не вказано</target>
       </trans-unit>
       <trans-unit id="fbb7ede7d5893c007bdd3eebca7aebf4">
         <source>Новое предложение тегов: {title}</source>
-        <target state="needs-translation">Новое предложение тегов: {title}</target>
+        <target state="translated">Нова пропозиція тегів: {title}</target>
       </trans-unit>
       <trans-unit id="d565c4cbba5cf76f35d78b96c593ea0c">
         <source>Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерация: &lt;a href="{moderate_suggested_tags}"&gt;открыть&lt;/a&gt;</source>
-        <target state="needs-translation">Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерация: &lt;a href="{moderate_suggested_tags}"&gt;открыть&lt;/a&gt;</target>
+        <target state="translated">Користувач {user} запропонував теги для новини «{title}»:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерація: &lt;a href="{moderate_suggested_tags}"&gt;відкрити&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="adac28f5cd92a277aa23c8a16a2c48ac">
         <source>Ваше предложение тегов отправлено</source>
-        <target state="needs-translation">Ваше предложение тегов отправлено</target>
+        <target state="translated">Вашу пропозицію тегів надіслано</target>
       </trans-unit>
       <trans-unit id="822d20fecbcff70e983a09dfee6560e9">
         <source>Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="needs-translation">Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+        <target state="translated">Ви запропонували теги для «{title}»:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="c2a8c8c2311ba3bb02f7859e4bae9ee6">
         <source>Теги одобрены: {title}</source>
-        <target state="needs-translation">Теги одобрены: {title}</target>
+        <target state="translated">Теги схвалено: {title}</target>
       </trans-unit>
       <trans-unit id="8e58d3035213724a85ee7e6cddb661ea">
         <source>Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="needs-translation">Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+        <target state="translated">Ваші теги для «{title}» схвалено:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="5b19887c6ec89db340916af4f904ad21">
         <source>Теги отклонены: {title}</source>
-        <target state="needs-translation">Теги отклонены: {title}</target>
+        <target state="translated">Теги відхилено: {title}</target>
       </trans-unit>
       <trans-unit id="46eb09ce88633b36083211db61d94f6b">
         <source>Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
