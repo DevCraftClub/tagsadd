@@ -36,87 +36,87 @@
       </trans-unit>
       <trans-unit id="46eb09ce88633b36083211db61d94f6b">
         <source>Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="needs-translation">Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+        <target state="translated">Ваші теги для «{title}» відхилено.\nПричина: {decline_reason}\n\nПосилання: &lt;a href=\"{full-link}\"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="77265a7648214f83c4baa40d7dce061f">
         <source>Предложение не найдено</source>
-        <target state="needs-translation">Предложение не найдено</target>
+        <target state="translated">Пропозицію не знайдено</target>
       </trans-unit>
       <trans-unit id="1c657a7eb4e5723d2792ea68f9680170">
         <source>Гостям запрещено предлагать теги</source>
-        <target state="needs-translation">Гостям запрещено предлагать теги</target>
+        <target state="translated">Гостям заборонено пропонувати теги</target>
       </trans-unit>
       <trans-unit id="fa5d12a40cec45e8ea1545138f34dc87">
         <source>Новость не указана</source>
-        <target state="needs-translation">Новость не указана</target>
+        <target state="translated">Новину не вказано</target>
       </trans-unit>
       <trans-unit id="7b5623cb57a35bf7972d4cd49bd0f498">
         <source>Новость не найдена</source>
-        <target state="needs-translation">Новость не найдена</target>
+        <target state="translated">Новину не знайдено</target>
       </trans-unit>
       <trans-unit id="88a6e7526617ea6ad5b0152d0f01abf5">
         <source>Укажите хотя бы один тег</source>
-        <target state="needs-translation">Укажите хотя бы один тег</target>
+        <target state="translated">Укажіть принаймні один тег</target>
       </trans-unit>
       <trans-unit id="9618d7c47928698061f529bba680992a">
         <source>Гость</source>
-        <target state="needs-translation">Гость</target>
+        <target state="translated">Гість</target>
       </trans-unit>
       <trans-unit id="8da932af859b3098babc78de8d9e9e7f">
         <source>Предложение тегов к новостям и модерация очереди</source>
-        <target state="needs-translation">Предложение тегов к новостям и модерация очереди</target>
+        <target state="translated">Пропозиція тегів до новин та модерація черги</target>
       </trans-unit>
       <trans-unit id="047f5653b183292396e67f14c8750b73">
         <source>Главная</source>
-        <target state="needs-translation">Главная</target>
+        <target state="translated">Головна</target>
       </trans-unit>
       <trans-unit id="af3fc68446bf5e9b711a4106cca80fc8">
         <source>Предложения</source>
-        <target state="needs-translation">Предложения</target>
+        <target state="translated">Пропозиції</target>
       </trans-unit>
       <trans-unit id="5ebf700665bbaa7ff302fec21a5031a9">
         <source>Подключение в шаблоны</source>
-        <target state="needs-translation">Подключение в шаблоны</target>
+        <target state="translated">Підключення в шаблони</target>
       </trans-unit>
       <trans-unit id="c919d65bd95698af8f15fa8133bf490d">
         <source>Настройки</source>
-        <target state="needs-translation">Настройки</target>
+        <target state="translated">Налаштування</target>
       </trans-unit>
       <trans-unit id="593c9576a2a5b74de0d875b0af564132">
         <source>Журнал изменений</source>
-        <target state="needs-translation">Журнал изменений</target>
+        <target state="translated">Журнал змін</target>
       </trans-unit>
       <trans-unit id="8cdd8bb771bcf038dfb2740fd50b332c">
         <source>Дата</source>
-        <target state="needs-translation">Дата</target>
+        <target state="translated">Дата</target>
       </trans-unit>
       <trans-unit id="e1d08dd59f145584d8af5c85aaa69703">
         <source>Новость</source>
-        <target state="needs-translation">Новость</target>
+        <target state="translated">Новина</target>
       </trans-unit>
       <trans-unit id="f154d6cc8945d799f4b31ccc1e0019f5">
         <source>Пользователь</source>
-        <target state="needs-translation">Пользователь</target>
+        <target state="translated">Користувач</target>
       </trans-unit>
       <trans-unit id="2f884b41fe8b0f3ff6420fb84ce7872c">
         <source>Фильтр</source>
-        <target state="needs-translation">Фильтр</target>
+        <target state="translated">Фільтр</target>
       </trans-unit>
       <trans-unit id="eb1c9dbf462343f43f2b9da2e7af4b3f">
         <source>ID новости</source>
-        <target state="needs-translation">ID новости</target>
+        <target state="translated">ID новини</target>
       </trans-unit>
       <trans-unit id="c5390fbb4096c97b1450e69c07b1e2e3">
         <source>ID пользователя</source>
-        <target state="needs-translation">ID пользователя</target>
+        <target state="translated">ID користувача</target>
       </trans-unit>
       <trans-unit id="54f067a401b1d97fb64ed2e6767094e0">
         <source>Теги</source>
-        <target state="needs-translation">Теги</target>
+        <target state="translated">Теги</target>
       </trans-unit>
       <trans-unit id="52809e2a75e9e33dea8cff93397570d4">
         <source>Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.</source>
-        <target state="needs-translation">Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.</target>
+        <target state="translated">Помилка undefined __() на фронті під час include tags_add.php без DevCraft bootstrap — додано fallback.</target>
       </trans-unit>
       <trans-unit id="d64ebec57518df9c07171cbcaf90c856">
         <source>XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.</source>
