@@ -1,206 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="tagsadd.ru_RU" datatype="plaintext" source-language="ru" target-language="uk">
+  <file original="tags_add.ru_RU" datatype="plaintext" source-language="ru" target-language="uk">
     <body>
       <trans-unit id="15a6f6bfe6180a7796681f2155c06e6d">
         <source>Причина не указана</source>
-        <target state="translated">Причину не вказано</target>
+        <target state="needs-translation">Причина не указана</target>
       </trans-unit>
       <trans-unit id="fbb7ede7d5893c007bdd3eebca7aebf4">
         <source>Новое предложение тегов: {title}</source>
-        <target state="translated">Нова пропозиція тегів: {title}</target>
+        <target state="needs-translation">Новое предложение тегов: {title}</target>
       </trans-unit>
       <trans-unit id="d565c4cbba5cf76f35d78b96c593ea0c">
         <source>Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерация: &lt;a href="{moderate_suggested_tags}"&gt;открыть&lt;/a&gt;</source>
-        <target state="translated">Користувач {user} запропонував теги для новини «{title}»:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерація: &lt;a href="{moderate_suggested_tags}"&gt;відкрити&lt;/a&gt;</target>
+        <target state="needs-translation">Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерация: &lt;a href="{moderate_suggested_tags}"&gt;открыть&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="adac28f5cd92a277aa23c8a16a2c48ac">
         <source>Ваше предложение тегов отправлено</source>
-        <target state="translated">Вашу пропозицію тегів надіслано</target>
+        <target state="needs-translation">Ваше предложение тегов отправлено</target>
       </trans-unit>
       <trans-unit id="822d20fecbcff70e983a09dfee6560e9">
         <source>Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="translated">Ви запропонували теги для «{title}»:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+        <target state="needs-translation">Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="c2a8c8c2311ba3bb02f7859e4bae9ee6">
         <source>Теги одобрены: {title}</source>
-        <target state="translated">Теги схвалено: {title}</target>
+        <target state="needs-translation">Теги одобрены: {title}</target>
       </trans-unit>
       <trans-unit id="8e58d3035213724a85ee7e6cddb661ea">
         <source>Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="translated">Ваші теги для «{title}» схвалено:\n{suggested_tags}\n\nПосилання: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+        <target state="needs-translation">Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="5b19887c6ec89db340916af4f904ad21">
         <source>Теги отклонены: {title}</source>
-        <target state="translated">Теги відхилено: {title}</target>
+        <target state="needs-translation">Теги отклонены: {title}</target>
       </trans-unit>
       <trans-unit id="46eb09ce88633b36083211db61d94f6b">
         <source>Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
-        <target state="translated">Ваші теги для «{title}» відхилено.\nПричина: {decline_reason}\n\nПосилання: &lt;a href=\"{full-link}\"&gt;{title}&lt;/a&gt;&lt;a href="{full-link}"&gt;</target>
+        <target state="needs-translation">Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
       </trans-unit>
       <trans-unit id="77265a7648214f83c4baa40d7dce061f">
         <source>Предложение не найдено</source>
-        <target state="translated">Пропозицію не знайдено</target>
+        <target state="needs-translation">Предложение не найдено</target>
       </trans-unit>
       <trans-unit id="1c657a7eb4e5723d2792ea68f9680170">
         <source>Гостям запрещено предлагать теги</source>
-        <target state="translated">Гостям заборонено пропонувати теги</target>
+        <target state="needs-translation">Гостям запрещено предлагать теги</target>
       </trans-unit>
       <trans-unit id="fa5d12a40cec45e8ea1545138f34dc87">
         <source>Новость не указана</source>
-        <target state="translated">Новину не вказано</target>
+        <target state="needs-translation">Новость не указана</target>
       </trans-unit>
       <trans-unit id="7b5623cb57a35bf7972d4cd49bd0f498">
         <source>Новость не найдена</source>
-        <target state="translated">Новину не знайдено</target>
+        <target state="needs-translation">Новость не найдена</target>
       </trans-unit>
       <trans-unit id="88a6e7526617ea6ad5b0152d0f01abf5">
         <source>Укажите хотя бы один тег</source>
-        <target state="translated">Укажіть принаймні один тег</target>
+        <target state="needs-translation">Укажите хотя бы один тег</target>
       </trans-unit>
       <trans-unit id="9618d7c47928698061f529bba680992a">
         <source>Гость</source>
-        <target state="translated">Гість</target>
+        <target state="needs-translation">Гость</target>
       </trans-unit>
       <trans-unit id="8da932af859b3098babc78de8d9e9e7f">
         <source>Предложение тегов к новостям и модерация очереди</source>
-        <target state="translated">Пропозиція тегів до новин та модерація черги</target>
+        <target state="needs-translation">Предложение тегов к новостям и модерация очереди</target>
       </trans-unit>
       <trans-unit id="047f5653b183292396e67f14c8750b73">
         <source>Главная</source>
-        <target state="translated">Головна</target>
+        <target state="needs-translation">Главная</target>
       </trans-unit>
       <trans-unit id="af3fc68446bf5e9b711a4106cca80fc8">
         <source>Предложения</source>
-        <target state="translated">Пропозиції</target>
+        <target state="needs-translation">Предложения</target>
       </trans-unit>
       <trans-unit id="5ebf700665bbaa7ff302fec21a5031a9">
         <source>Подключение в шаблоны</source>
-        <target state="translated">Підключення в шаблони</target>
+        <target state="needs-translation">Подключение в шаблоны</target>
       </trans-unit>
       <trans-unit id="c919d65bd95698af8f15fa8133bf490d">
         <source>Настройки</source>
-        <target state="translated">Налаштування</target>
+        <target state="needs-translation">Настройки</target>
       </trans-unit>
       <trans-unit id="593c9576a2a5b74de0d875b0af564132">
         <source>Журнал изменений</source>
-        <target state="translated">Журнал змін</target>
+        <target state="needs-translation">Журнал изменений</target>
       </trans-unit>
       <trans-unit id="8cdd8bb771bcf038dfb2740fd50b332c">
         <source>Дата</source>
-        <target state="translated">Дата</target>
+        <target state="needs-translation">Дата</target>
       </trans-unit>
       <trans-unit id="e1d08dd59f145584d8af5c85aaa69703">
         <source>Новость</source>
-        <target state="translated">Новина</target>
+        <target state="needs-translation">Новость</target>
       </trans-unit>
       <trans-unit id="f154d6cc8945d799f4b31ccc1e0019f5">
         <source>Пользователь</source>
-        <target state="translated">Користувач</target>
+        <target state="needs-translation">Пользователь</target>
       </trans-unit>
       <trans-unit id="2f884b41fe8b0f3ff6420fb84ce7872c">
         <source>Фильтр</source>
-        <target state="translated">Фільтр</target>
+        <target state="needs-translation">Фильтр</target>
       </trans-unit>
       <trans-unit id="eb1c9dbf462343f43f2b9da2e7af4b3f">
         <source>ID новости</source>
-        <target state="translated">ID новини</target>
+        <target state="needs-translation">ID новости</target>
       </trans-unit>
       <trans-unit id="c5390fbb4096c97b1450e69c07b1e2e3">
         <source>ID пользователя</source>
-        <target state="translated">ID користувача</target>
+        <target state="needs-translation">ID пользователя</target>
       </trans-unit>
       <trans-unit id="54f067a401b1d97fb64ed2e6767094e0">
         <source>Теги</source>
-        <target state="translated">Теги</target>
+        <target state="needs-translation">Теги</target>
       </trans-unit>
       <trans-unit id="52809e2a75e9e33dea8cff93397570d4">
         <source>Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.</source>
-        <target state="translated">Фатальна помилка undefined __() на фронті під час include tags_add.php без DevCraft bootstrap — додано fallback.</target>
+        <target state="needs-translation">Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.</target>
       </trans-unit>
       <trans-unit id="d64ebec57518df9c07171cbcaf90c856">
         <source>XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.</source>
-        <target state="translated">XLIFF TagsAdd перенесено з locales/ru/ до locales/ru_RU/.</target>
+        <target state="needs-translation">XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.</target>
       </trans-unit>
       <trans-unit id="65bb6fccc64c16b4554b1b4444a82b85">
         <source>Рендер button/modal через нативный $tpl и шаблоны темы.</source>
-        <target state="translated">Рендер button/modal за допомогою нативного $tpl та шаблонів теми.</target>
+        <target state="needs-translation">Рендер button/modal через нативный $tpl и шаблоны темы.</target>
       </trans-unit>
       <trans-unit id="2fdd4c44104e473c6f45a51f6db94581">
         <source>Блок author в manifest убран — используется дефолт ModuleManifest.</source>
-        <target state="translated">Блок author у manifest видалено — використовується стандартний ModuleManifest.</target>
+        <target state="needs-translation">Блок author в manifest убран — используется дефолт ModuleManifest.</target>
       </trans-unit>
       <trans-unit id="86c02b8ef4d7d7b799db0e2852203841">
         <source>Каркас TagsAdd для DevCraft Admin и DLE 20.0.</source>
-        <target state="translated">Каркас TagsAdd для DevCraft Admin та DLE 20.0.</target>
+        <target state="needs-translation">Каркас TagsAdd для DevCraft Admin и DLE 20.0.</target>
       </trans-unit>
       <trans-unit id="25de2efcf85c88d0daf31c4c01f21f5d">
         <source>Очередь предложений тегов, модерация approve/reject, инкрементальная вставка в post.tags/_tags или xfield.</source>
-        <target state="translated">Черга пропозицій тегів, модерація approve/reject, інкрементальна вставка у post.tags/_tags чи xfield.</target>
+        <target state="needs-translation">Очередь предложений тегов, модерация approve/reject, инкрементальная вставка в post.tags/_tags или xfield.</target>
       </trans-unit>
       <trans-unit id="75eb8b10e932297befc2494247fda33c">
         <source>Публичный suggest через dc_public.js и controller=public.</source>
-        <target state="translated">Публічний suggest через dc_public.js та controller=public.</target>
+        <target state="needs-translation">Публичный suggest через dc_public.js и controller=public.</target>
       </trans-unit>
       <trans-unit id="3a9ad59f57321eae81b356184efb8cad">
         <source>Шаблоны темы Default/devcraft/tags_add и настройки с PM-шаблонами.</source>
-        <target state="translated">Шаблони теми Default/devcraft/tags_add та налаштування з PM-шаблонами.</target>
+        <target state="needs-translation">Шаблоны темы Default/devcraft/tags_add и настройки с PM-шаблонами.</target>
       </trans-unit>
       <trans-unit id="dae418aefafd82dc153fcc87aa464f05">
         <source>Стандартная причина отклонения (decline_reason_default) и Metro-диалоги отклонения/удаления.</source>
-        <target state="translated">Стандартна причина відхилення (decline_reason_default) та Metro-діалоги відхилення/видалення.</target>
+        <target state="needs-translation">Стандартная причина отклонения (decline_reason_default) и Metro-диалоги отклонения/удаления.</target>
       </trans-unit>
       <trans-unit id="61d16067d1dfb19ae262c83a647b2c52">
         <source>В списке предложений: имена пользователей и заголовки новостей со ссылками/иконками.</source>
-        <target state="translated">У списку пропозицій: імена користувачів та заголовки новин із посиланнями/піктограмами.</target>
+        <target state="needs-translation">В списке предложений: имена пользователей и заголовки новостей со ссылками/иконками.</target>
       </trans-unit>
       <trans-unit id="426b51804b151fc0a094101aa599adec">
         <source>Плейсхолдеры PM: {suggested_tags}, {moderate_suggested_tags}, {decline_reason}; mail_from — select.</source>
-        <target state="translated">Плейсхолдери PM: {suggested_tags}, {moderate_suggested_tags}, {decline_reason}; mail_from — select.</target>
+        <target state="needs-translation">Плейсхолдеры PM: {suggested_tags}, {moderate_suggested_tags}, {decline_reason}; mail_from — select.</target>
       </trans-unit>
       <trans-unit id="232360c1d25a9050415505a0bf506b8d">
         <source>Отмена отклонения больше не удаляет запись; HTML-ссылки в шаблонах PM после двойного экранирования.</source>
-        <target state="translated">Скасування відхилення більше не видаляє запис; HTML-посилання у шаблонах PM після подвійного екранування.</target>
+        <target state="needs-translation">Отмена отклонения больше не удаляет запись; HTML-ссылки в шаблонах PM после двойного экранирования.</target>
       </trans-unit>
       <trans-unit id="2193f4a3708d98409fdc5646738511ee">
         <source>Legacy Semantic UI, arcticModal, tokenfield, maharder AJAX и доверие к userid из POST.</source>
-        <target state="translated">Застарілий Semantic UI, arcticModal, tokenfield, maharder AJAX та довіра до userid з POST.</target>
+        <target state="needs-translation">Legacy Semantic UI, arcticModal, tokenfield, maharder AJAX и доверие к userid из POST.</target>
       </trans-unit>
       <trans-unit id="1167e787a81a5549bc895f4c61dcba4b">
         <source>Редактирование</source>
-        <target state="translated">Редагування</target>
+        <target state="needs-translation">Редактирование</target>
       </trans-unit>
       <trans-unit id="0de733bff24bb8215fb1f0cc839d8db3">
         <source>История изменений</source>
-        <target state="translated">Історія змін</target>
+        <target state="needs-translation">История изменений</target>
       </trans-unit>
       <trans-unit id="19bcc8f46ae10b2486deae2f0131ad52">
         <source>— не выбрано —</source>
-        <target state="translated">— не обрано —</target>
+        <target state="needs-translation">— не выбрано —</target>
       </trans-unit>
       <trans-unit id="e25ea2585d3685b7aad026194546bb70">
         <source>Основные</source>
-        <target state="translated">Основні</target>
+        <target state="needs-translation">Основные</target>
       </trans-unit>
       <trans-unit id="55dea4f017ac54ebc64ce651af421d8e">
         <source>Разрешить предложения гостям</source>
-        <target state="translated">Дозволити пропозиції гостям</target>
+        <target state="needs-translation">Разрешить предложения гостям</target>
       </trans-unit>
       <trans-unit id="acf7cd2efae1658e5a868d601eb3fda2">
         <source>Если выключено, форму предложения тегов увидят только авторизованные пользователи.</source>
-        <target state="translated">Якщо ця опція вимкнена, форму для пропозиції тегів бачитимуть лише авторизовані користувачі.</target>
+        <target state="needs-translation">Если выключено, форму предложения тегов увидят только авторизованные пользователи.</target>
       </trans-unit>
       <trans-unit id="8593205d12b974676ba89b979ef75bc2">
         <source>Текст кнопки на новости</source>
-        <target state="translated">Текст кнопки на новини</target>
+        <target state="needs-translation">Текст кнопки на новости</target>
       </trans-unit>
       <trans-unit id="2fef65fe6440269ebc25951774e0136c">
         <source>Надпись на кнопке, которая открывает окно отправки тегов на сайте.</source>
-        <target state="translated">Напис на кнопці, яка відкриває вікно надсилання тегів на сайті.</target>
+        <target state="needs-translation">Надпись на кнопке, которая открывает окно отправки тегов на сайте.</target>
       </trans-unit>
       <trans-unit id="097374512849722c3c5180e98272f47e">
         <source>Предложить теги</source>
-        <target state="translated">Запропонувати теги</target>
+        <target state="needs-translation">Предложить теги</target>
       </trans-unit>
       <trans-unit id="91599b41d355ffa3f40bb6878397033d">
         <source>PM админу при новом предложении</source>
