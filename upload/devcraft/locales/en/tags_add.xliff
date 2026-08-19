@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file original="tagsadd.ru_RU" datatype="plaintext" source-language="ru" target-language="en">
+  <file original="tags_add.ru_RU" datatype="plaintext" source-language="ru" target-language="en">
     <body>
       <trans-unit id="15a6f6bfe6180a7796681f2155c06e6d">
         <source>Причина не указана</source>
