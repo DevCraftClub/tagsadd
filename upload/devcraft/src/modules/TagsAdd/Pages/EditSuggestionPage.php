@@ -7,6 +7,7 @@ namespace DevCraft\Modules\TagsAdd\Pages;
 use DevCraft\Core\Application;
 use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
+use DevCraft\Core\Support\DleDataService;
 
 /**
  * Редактирование предложения.
@@ -30,7 +31,7 @@ final class EditSuggestionPage extends AbstractPage {
 			$userName = __('Гость');
 
 			if($entity->user_id > 0) {
-				$user     = Application::instance()->dleData()->user(id: $entity->user_id);
+				$user     = DleDataService::user(id: $entity->user_id);
 				$userName = !empty($user['name'])
 					? (string) $user['name']
 					: '#' . $entity->user_id;

@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Services;
 
+use DevCraft\Modules\TagsAdd\TagsAddIdentity;
+
 use DevCraft\Core\Application;
+use DevCraft\Builders\QueryBuilder;
 use DevCraft\Core\Support\DataManager;
+use DevCraft\Core\Support\DleDataService;
 use DevCraft\Core\Support\ParseTemplateTags;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
 use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
@@ -36,7 +40,7 @@ final class ModerationService {
 	 * @return array<string, mixed>
 	 */
 	public function config(): array {
-		return $this->normalizer->normalize(DataManager::getConfig('tags_add', null, 'tagsadd'));
+		return $this->normalizer->normalize(DataManager::getConfig(TagsAddIdentity::code(), null, 'tagsadd'));
 	}
 
 	public function approve(int $id, ?string $tagsOverride = null): void {
@@ -155,9 +159,7 @@ final class ModerationService {
 		}
 
 		$cfg  = $this->config();
-		$user = $db->super_query(
-			'SELECT user_id, name, xfields FROM ' . USERPREFIX . "_users WHERE user_id='{$entity->user_id}'",
-		);
+		$user = DleDataService::user(id: $entity->user_id);
 
 		if(empty($user['user_id'])) {
 			return;
@@ -197,21 +199,34 @@ final class ModerationService {
 	 * @return array<string, mixed>
 	 */
 	public function loadNewsRow(int $newsId): array {
-		global $db;
-
 		if($newsId <= 0) {
 			return [];
 		}
 
-		$row = $db->super_query(
-			'SELECT p.id, p.title, p.alt_name, p.category, p.date, p.autor, p.short_story, p.full_story, p.xfields,'
-			. ' p.comm_num, p.fixed, p.allow_comm, p.approve, p.tags,'
-			. ' e.news_read, e.allow_rate, e.rating, e.vote_num, e.votes, e.editdate, e.editor, e.reason, e.view_edit'
-			. ' FROM ' . PREFIX . '_post p'
-			. ' LEFT JOIN ' . PREFIX . "_post_extras e ON e.news_id=p.id WHERE p.id='{$newsId}'",
-		);
+		$row = QueryBuilder::create('post')
+			->withColumns([
+				'id', 'title', 'alt_name', 'category', 'date', 'autor',
+				'short_story', 'full_story', 'xfields', 'comm_num', 'fixed',
+				'allow_comm', 'approve', 'tags',
+			])
+			->withConditionsItem('id', $newsId)
+			->withLimit(1)
+			->first();
 
-		return is_array($row) ? $row : [];
+		if($row === []) {
+			return [];
+		}
+
+		$extras = QueryBuilder::create('post_extras')
+			->withColumns([
+				'news_read', 'allow_rate', 'rating', 'vote_num', 'votes',
+				'editdate', 'editor', 'reason', 'view_edit',
+			])
+			->withConditionsItem('news_id', $newsId)
+			->withLimit(1)
+			->first();
+
+		return $extras !== [] ? array_merge($row, $extras) : $row;
 	}
 
 	/** @deprecated Используйте ParseTemplateTags::fullLink() */
