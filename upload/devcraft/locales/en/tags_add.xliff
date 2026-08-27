@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="tags_add.ru_RU" datatype="plaintext" source-language="ru" target-language="en">
+    <body>
+      <trans-unit id="15a6f6bfe6180a7796681f2155c06e6d">
+        <source>Причина не указана</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Reason not specified</target>
+      </trans-unit>
+      <trans-unit id="fbb7ede7d5893c007bdd3eebca7aebf4">
+        <source>Новое предложение тегов: {title}</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">New tag suggestions: {title}</target>
+      </trans-unit>
+      <trans-unit id="d565c4cbba5cf76f35d78b96c593ea0c">
+        <source>Пользователь {user} предложил теги для новости «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nМодерация: &lt;a href="{moderate_suggested_tags}"&gt;открыть&lt;/a&gt;</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">User {user} has suggested tags for the news item «{title}»:\n{suggested_tags}\n\nLink: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;\nModeration: &lt;a href="{moderate_suggested_tags}"&gt;open&lt;/a&gt;</target>
+      </trans-unit>
+      <trans-unit id="adac28f5cd92a277aa23c8a16a2c48ac">
+        <source>Ваше предложение тегов отправлено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Your tag suggestion has been submitted</target>
+      </trans-unit>
+      <trans-unit id="822d20fecbcff70e983a09dfee6560e9">
+        <source>Вы предложили теги для «{title}»:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">You have suggested tags for «{title}»:\n{suggested_tags}\n\nLink: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+      </trans-unit>
+      <trans-unit id="c2a8c8c2311ba3bb02f7859e4bae9ee6">
+        <source>Теги одобрены: {title}</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tags approved: {title}</target>
+      </trans-unit>
+      <trans-unit id="8e58d3035213724a85ee7e6cddb661ea">
+        <source>Ваши теги для «{title}» одобрены:\n{suggested_tags}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Your tags for «{title}» have been approved:\n{suggested_tags}\n\nLink: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+      </trans-unit>
+      <trans-unit id="5b19887c6ec89db340916af4f904ad21">
+        <source>Теги отклонены: {title}</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tags rejected: {title}</target>
+      </trans-unit>
+      <trans-unit id="46eb09ce88633b36083211db61d94f6b">
+        <source>Ваши теги для «{title}» отклонены.\nПричина: {decline_reason}\n\nСсылка: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Your tags for «{title}» have been rejected.\nReason: {decline_reason}\n\nLink: &lt;a href="{full-link}"&gt;{title}&lt;/a&gt;</target>
+      </trans-unit>
+      <trans-unit id="77265a7648214f83c4baa40d7dce061f">
+        <source>Предложение не найдено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Suggestion not found</target>
+      </trans-unit>
+      <trans-unit id="1c657a7eb4e5723d2792ea68f9680170">
+        <source>Гостям запрещено предлагать теги</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Guests are not allowed to suggest tags</target>
+      </trans-unit>
+      <trans-unit id="fa5d12a40cec45e8ea1545138f34dc87">
+        <source>Новость не указана</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">News item not specified</target>
+      </trans-unit>
+      <trans-unit id="7b5623cb57a35bf7972d4cd49bd0f498">
+        <source>Новость не найдена</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">News item not found</target>
+      </trans-unit>
+      <trans-unit id="88a6e7526617ea6ad5b0152d0f01abf5">
+        <source>Укажите хотя бы один тег</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Please specify at least one tag</target>
+      </trans-unit>
+      <trans-unit id="9618d7c47928698061f529bba680992a">
+        <source>Гость</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Guest</target>
+      </trans-unit>
+      <trans-unit id="8da932af859b3098babc78de8d9e9e7f">
+        <source>Предложение тегов к новостям и модерация очереди</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tag suggestions for news items and moderation queue</target>
+      </trans-unit>
+      <trans-unit id="047f5653b183292396e67f14c8750b73">
+        <source>Главная</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Home</target>
+      </trans-unit>
+      <trans-unit id="af3fc68446bf5e9b711a4106cca80fc8">
+        <source>Предложения</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Suggestions</target>
+      </trans-unit>
+      <trans-unit id="5ebf700665bbaa7ff302fec21a5031a9">
+        <source>Подключение в шаблоны</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Connection in templates</target>
+      </trans-unit>
+      <trans-unit id="c919d65bd95698af8f15fa8133bf490d">
+        <source>Настройки</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Settings</target>
+      </trans-unit>
+      <trans-unit id="593c9576a2a5b74de0d875b0af564132">
+        <source>Журнал изменений</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Changelog</target>
+      </trans-unit>
+      <trans-unit id="8cdd8bb771bcf038dfb2740fd50b332c">
+        <source>Дата</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Date</target>
+      </trans-unit>
+      <trans-unit id="e1d08dd59f145584d8af5c85aaa69703">
+        <source>Новость</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">News</target>
+      </trans-unit>
+      <trans-unit id="f154d6cc8945d799f4b31ccc1e0019f5">
+        <source>Пользователь</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">User</target>
+      </trans-unit>
+      <trans-unit id="2f884b41fe8b0f3ff6420fb84ce7872c">
+        <source>Фильтр</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Filter</target>
+      </trans-unit>
+      <trans-unit id="eb1c9dbf462343f43f2b9da2e7af4b3f">
+        <source>ID новости</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">News ID</target>
+      </trans-unit>
+      <trans-unit id="c5390fbb4096c97b1450e69c07b1e2e3">
+        <source>ID пользователя</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">User ID</target>
+      </trans-unit>
+      <trans-unit id="54f067a401b1d97fb64ed2e6767094e0">
+        <source>Теги</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tags</target>
+      </trans-unit>
+      <trans-unit id="52809e2a75e9e33dea8cff93397570d4">
+        <source>Фатал undefined __() на фронте при include tags_add.php без DevCraft bootstrap — добавлен fallback.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Fatal undefined __() on frontend when including tags_add.php without DevCraft bootstrap — fallback added.</target>
+      </trans-unit>
+      <trans-unit id="d64ebec57518df9c07171cbcaf90c856">
+        <source>XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">XLIFF TagsAdd moved from locales/ru/ to locales/ru_RU/.</target>
+      </trans-unit>
+      <trans-unit id="65bb6fccc64c16b4554b1b4444a82b85">
+        <source>Рендер button/modal через нативный $tpl и шаблоны темы.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Rendering button/modal via native $tpl and theme templates.</target>
+      </trans-unit>
+      <trans-unit id="2fdd4c44104e473c6f45a51f6db94581">
+        <source>Блок author в manifest убран — используется дефолт ModuleManifest.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">The author block in manifest removed — default ModuleManifest is used.</target>
+      </trans-unit>
+      <trans-unit id="86c02b8ef4d7d7b799db0e2852203841">
+        <source>Каркас TagsAdd для DevCraft Admin и DLE 20.0.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Skeleton for TagsAdd for DevCraft Admin and DLE 20.0.</target>
+      </trans-unit>
+      <trans-unit id="25de2efcf85c88d0daf31c4c01f21f5d">
+        <source>Очередь предложений тегов, модерация approve/reject, инкрементальная вставка в post.tags/_tags или xfield.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tag suggestion queue, moderation with approve/reject, incremental insertion into post.tags/_tags or xfield.</target>
+      </trans-unit>
+      <trans-unit id="75eb8b10e932297befc2494247fda33c">
+        <source>Публичный suggest через dc_public.js и controller=public.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Public suggest via dc_public.js and controller=public.</target>
+      </trans-unit>
+      <trans-unit id="3a9ad59f57321eae81b356184efb8cad">
+        <source>Шаблоны темы Default/devcraft/tags_add и настройки с PM-шаблонами.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Theme templates Default/devcraft/tags_add and settings with PM templates.</target>
+      </trans-unit>
+      <trans-unit id="dae418aefafd82dc153fcc87aa464f05">
+        <source>Стандартная причина отклонения (decline_reason_default) и Metro-диалоги отклонения/удаления.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Default rejection reason (decline_reason_default) and Metro dialogs for rejection/deletion.</target>
+      </trans-unit>
+      <trans-unit id="61d16067d1dfb19ae262c83a647b2c52">
+        <source>В списке предложений: имена пользователей и заголовки новостей со ссылками/иконками.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">In the list of suggestions: usernames and news titles with links/icons.</target>
+      </trans-unit>
+      <trans-unit id="426b51804b151fc0a094101aa599adec">
+        <source>Плейсхолдеры PM: {suggested_tags}, {moderate_suggested_tags}, {decline_reason}; mail_from — select.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM placeholders: {suggested_tags}, {moderate_suggested_tags}, {decline_reason}; mail_from — select.</target>
+      </trans-unit>
+      <trans-unit id="232360c1d25a9050415505a0bf506b8d">
+        <source>Отмена отклонения больше не удаляет запись; HTML-ссылки в шаблонах PM после двойного экранирования.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Rejection cancellation no longer deletes the record; HTML links in PM templates after double escaping.</target>
+      </trans-unit>
+      <trans-unit id="2193f4a3708d98409fdc5646738511ee">
+        <source>Legacy Semantic UI, arcticModal, tokenfield, maharder AJAX и доверие к userid из POST.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Legacy Semantic UI, arcticModal, tokenfield, maharder AJAX and trust in userid from POST.</target>
+      </trans-unit>
+      <trans-unit id="1167e787a81a5549bc895f4c61dcba4b">
+        <source>Редактирование</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Editing</target>
+      </trans-unit>
+      <trans-unit id="0de733bff24bb8215fb1f0cc839d8db3">
+        <source>История изменений</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">History of changes</target>
+      </trans-unit>
+      <trans-unit id="19bcc8f46ae10b2486deae2f0131ad52">
+        <source>— не выбрано —</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">— not selected —</target>
+      </trans-unit>
+      <trans-unit id="e25ea2585d3685b7aad026194546bb70">
+        <source>Основные</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Main</target>
+      </trans-unit>
+      <trans-unit id="55dea4f017ac54ebc64ce651af421d8e">
+        <source>Разрешить предложения гостям</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Allow guests to suggest tags</target>
+      </trans-unit>
+      <trans-unit id="acf7cd2efae1658e5a868d601eb3fda2">
+        <source>Если выключено, форму предложения тегов увидят только авторизованные пользователи.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">If disabled, only authorized users will see the tag suggestion form.</target>
+      </trans-unit>
+      <trans-unit id="8593205d12b974676ba89b979ef75bc2">
+        <source>Текст кнопки на новости</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Button text on the news item</target>
+      </trans-unit>
+      <trans-unit id="2fef65fe6440269ebc25951774e0136c">
+        <source>Надпись на кнопке, которая открывает окно отправки тегов на сайте.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">The text on the button that opens the tag submission window on the site.</target>
+      </trans-unit>
+      <trans-unit id="097374512849722c3c5180e98272f47e">
+        <source>Предложить теги</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Suggest tags</target>
+      </trans-unit>
+      <trans-unit id="91599b41d355ffa3f40bb6878397033d">
+        <source>PM админу при новом предложении</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM to admin on new suggestion</target>
+      </trans-unit>
+      <trans-unit id="eda28854ee7f77b82acdc7a09af2544a">
+        <source>Отправлять ли личное сообщение администратору после нового предложения тегов.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Whether to send a personal message to the administrator after a new tag suggestion.</target>
+      </trans-unit>
+      <trans-unit id="2486f51e03d1229ce2492bdf409b15e4">
+        <source>Ник получателя PM (админ)</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM recipient nickname (admin)</target>
+      </trans-unit>
+      <trans-unit id="c42680b6fee8a4e3f11fde5d44d59ce6">
+        <source>Пользователь DLE, который будет получать уведомления о новых предложениях.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">DLE user who will receive notifications about new suggestions.</target>
+      </trans-unit>
+      <trans-unit id="78e2d6e277547e12325d862516d3111c">
+        <source>Имя отправителя PM</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM sender name</target>
+      </trans-unit>
+      <trans-unit id="4c61d4cdcbe39f71004c3a0df02776da">
+        <source>Пользователь DLE, от имени которого отправляются служебные личные сообщения модуля.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">DLE user from whose account service personal messages of the module are sent.</target>
+      </trans-unit>
+      <trans-unit id="1470122a7151695c2f864e02a2c59360">
+        <source>Имя user-xfield с prefs уведомлений</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Username of the xfield with notification preferences</target>
+      </trans-unit>
+      <trans-unit id="3a88f4bb1e44c2fc9ea44d8ceb6cc462">
+        <source>Поле профиля пользователя с настройкой уведомлений. Допустимые значения: onsend / onadd / ondel / all / none.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">User profile field with notification settings. Allowed values: onsend / onadd / ondel / all / none.</target>
+      </trans-unit>
+      <trans-unit id="6aec974900b37f2026946d991cfa38ff">
+        <source>Вставка при одобрении</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Insertion on approval</target>
+      </trans-unit>
+      <trans-unit id="ab5e27d804d2f04321f9f46e09df9240">
+        <source>Куда вставлять</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Where to insert</target>
+      </trans-unit>
+      <trans-unit id="ffe2233c10fb5e7df3b74175d2250b77">
+        <source>Определяет, куда записывать одобренные теги: в стандартные теги новости или в выбранное доп. поле.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Specifies where to write approved tags: into standard news tags or into the selected additional field.</target>
+      </trans-unit>
+      <trans-unit id="d202f130c36ca7f4ad9a467a3ae5d0ba">
+        <source>Теги новости</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">News tags</target>
+      </trans-unit>
+      <trans-unit id="565b14bd7f14f3f326da6ea5cb398c16">
+        <source>Доп. поле</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Additional field</target>
+      </trans-unit>
+      <trans-unit id="15effe89631bcd406ba0f86c528f0961">
+        <source>Имя доп. поля</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Additional field name</target>
+      </trans-unit>
+      <trans-unit id="bd10f923f9a5bf4aa35a69d03e0fe5ae">
+        <source>Используется только если выше выбрана вставка в доп. поле новости.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Used only if insertion into the news additional field is selected above.</target>
+      </trans-unit>
+      <trans-unit id="6072e5b4ba3b560e44df257c9af455f9">
+        <source>Писать также в xfsearch</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Also write to xfsearch</target>
+      </trans-unit>
+      <trans-unit id="8cf9d85ac4ae7512f8470e4357aedbcd">
+        <source>Дополнительно синхронизирует значение в служебное поле xfsearch для поиска и стандартной логики DLE.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Additionally synchronizes the value in the xfsearch service field for search and standard DLE logic.</target>
+      </trans-unit>
+      <trans-unit id="aead34cde158532c25e5b4641b8027e6">
+        <source>Шаблоны PM</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM templates</target>
+      </trans-unit>
+      <trans-unit id="f863d0321d142a214084347a74a3e67c">
+        <source>Админ: тема</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Admin: subject</target>
+      </trans-unit>
+      <trans-unit id="9b35ed975a9d8d82aae4780e416858d9">
+        <source>Тема ЛС администратору. Теги новости DLE ({title}, {full-link}, …) и {user} {suggested_tags} {moderate_suggested_tags}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM subject to the administrator. DLE news tags ({title}, {full-link}, …) and {user} {suggested_tags} {moderate_suggested_tags}.</target>
+      </trans-unit>
+      <trans-unit id="edbfce987abcc8759e5d3b3f277514ad">
+        <source>Админ: текст</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Admin: text</target>
+      </trans-unit>
+      <trans-unit id="6e2a19e8da6a11323023b105e0944dae">
+        <source>Текст уведомления администратору. Теги short/full DLE + {user} {suggested_tags} {moderate_suggested_tags} {decline_reason}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Notification text to the administrator. Short/full DLE tags + {user} {suggested_tags} {moderate_suggested_tags} {decline_reason}.</target>
+      </trans-unit>
+      <trans-unit id="ecb5f8346147b12e0a3b63960b169988">
+        <source>Отправитель при предложении: тема</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Sender on suggestion: subject</target>
+      </trans-unit>
+      <trans-unit id="ac4750a4050a27800647c52bd78d935d">
+        <source>Тема ЛС пользователю после отправки предложения. Теги новости DLE и модульные {…}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM subject to the user after submitting a suggestion. DLE news tags and module {…}.</target>
+      </trans-unit>
+      <trans-unit id="6fb009ba8ee979a45c1629464e054731">
+        <source>Отправитель при предложении: текст</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Sender on suggestion: text</target>
+      </trans-unit>
+      <trans-unit id="39a5cc564991ccfb8084d6b62572b946">
+        <source>Текст уведомления пользователю о том, что предложение тегов отправлено на модерацию.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Notification text to the user that the tag suggestion has been submitted for moderation.</target>
+      </trans-unit>
+      <trans-unit id="af57b9c763f22422a64cb67e6630a5fe">
+        <source>При одобрении: тема</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">On approval: subject</target>
+      </trans-unit>
+      <trans-unit id="cef547044f9f157cc358fea804d93891">
+        <source>Тема ЛС при одобрении. Теги новости DLE и {suggested_tags} {user}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM subject on approval. DLE news tags and {suggested_tags} {user}.</target>
+      </trans-unit>
+      <trans-unit id="3719748f65ca2433239986a186df4015">
+        <source>При одобрении: текст</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">On approval: text</target>
+      </trans-unit>
+      <trans-unit id="1997085d8a4cf6a34c37cf0241bda067">
+        <source>Текст уведомления об одобрении. Плейсхолдеры: теги DLE + {user} {suggested_tags} {full-link} {moderate_suggested_tags} {decline_reason}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Approval notification text. Placeholders: DLE tags + {user} {suggested_tags} {full-link} {moderate_suggested_tags} {decline_reason}.</target>
+      </trans-unit>
+      <trans-unit id="8d20145b97719240247af171b4dc0a12">
+        <source>При отказе: тема</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">On rejection: subject</target>
+      </trans-unit>
+      <trans-unit id="a39c6307999dfd3f88ab28c1810c8925">
+        <source>Тема ЛС при отклонении.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">PM subject on rejection.</target>
+      </trans-unit>
+      <trans-unit id="2d186201ce3ddb39b1d3bda706049f6a">
+        <source>При отказе: текст</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">On rejection: text</target>
+      </trans-unit>
+      <trans-unit id="aee2895ecd78735583ad6f0e4603fdd8">
+        <source>Текст уведомления об отклонении. Теги DLE + {title} {user} {full-link} {suggested_tags} {moderate_suggested_tags} {decline_reason}.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Rejection notification text. DLE tags + {title} {user} {full-link} {suggested_tags} {moderate_suggested_tags} {decline_reason}.</target>
+      </trans-unit>
+      <trans-unit id="3a1139361d3b86ead8b1f340af3420d3">
+        <source>Стандартная причина отклонения</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Default rejection reason</target>
+      </trans-unit>
+      <trans-unit id="0e35e4bc0ffbebceefe3d1179b5bbf59">
+        <source>Подставляется в {decline_reason}, если модератор оставил поле причины пустым.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Substituted into {decline_reason} if the moderator left the reason field empty.</target>
+      </trans-unit>
+      <trans-unit id="b8343be3524917913e2518d947f8d9ca">
+        <source>1. Кнопка в нужном месте шаблона</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">1. Button in the right place of the template</target>
+      </trans-unit>
+      <trans-unit id="a239c9d04dd8b96ac126b1714246d5ee">
+        <source>Этот include выводит только кнопку открытия модального окна. Обычно его ставят в</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">This include outputs only the button to open the modal window. It is usually placed in</target>
+      </trans-unit>
+      <trans-unit id="b6a3abbfe0c19382f9d65eef7003bf07">
+        <source>2. HTML модального окна</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">2. HTML of the modal window</target>
+      </trans-unit>
+      <trans-unit id="a4494bcb30c23c7b103f004b0eb47c99">
+        <source>Этот include выводит разметку диалога. Разместите его на той же странице новости, где есть кнопка.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">This include outputs the dialog markup. Place it on the same news page where the button is.</target>
+      </trans-unit>
+      <trans-unit id="295549681e1015d7c614c094e8597c89">
+        <source>3. CSS стили модуля</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">3. Module CSS styles</target>
+      </trans-unit>
+      <trans-unit id="70a999901ce8a7dba62ccf99156f2ab1">
+        <source>Подключите стили один раз в общем шаблоне сайта, например в</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Connect the styles once in the general site template, for example in</target>
+      </trans-unit>
+      <trans-unit id="831631679636791b02db39482ec294b2">
+        <source>4. JS логика и публичный AJAX-клиент</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">4. JS logic and public AJAX client</target>
+      </trans-unit>
+      <trans-unit id="f0b5a843a9d6031b876bbedf35079560">
+        <source>Этот include подключает DevCraft public client и скрипт модуля. Его лучше добавить один раз перед</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">This include connects the DevCraft public client and the module script. It is better to add it once before</target>
+      </trans-unit>
+      <trans-unit id="c92419a21969fc5ecef3340f8059a59e">
+        <source>Рекомендуемая схема подключения</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Recommended connection scheme</target>
+      </trans-unit>
+      <trans-unit id="796764d08b23c1bc40b6c886307c92ae">
+        <source>Если модуль нужен на странице новости целиком, обычно хватает такой схемы:</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">If the module is needed on the entire news page, usually this scheme is sufficient:</target>
+      </trans-unit>
+      <trans-unit id="95bf04cffef0e903e48fd3cd8e83aae6">
+        <source>один раз в</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">once in</target>
+      </trans-unit>
+      <trans-unit id="a098ded9db146c05f418f5b908e8c9dd">
+        <source>в месте показа кнопки в шаблоне новости.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">in the place of the button in the news template.</target>
+      </trans-unit>
+      <trans-unit id="6290f7ca26aabe422bc85a57814dd27e">
+        <source>рядом с кнопкой или внизу того же шаблона новости.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">next to the button or at the bottom of the same news template.</target>
+      </trans-unit>
+      <trans-unit id="a8e3e6ede1350db89dca1243b19a290b">
+        <source>Если предложения разрешены только авторизованным, для гостей runtime ничего не выведет.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">If suggestions are allowed only for authorized users, the runtime will not output anything for guests.</target>
+      </trans-unit>
+      <trans-unit id="74ea58b6a801f0dce4e5d34dbca034dc">
+        <source>Сохранить</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Save</target>
+      </trans-unit>
+      <trans-unit id="8df353081dff6b4d6152b671cd44f9ce">
+        <source>Одобрить</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Approve</target>
+      </trans-unit>
+      <trans-unit id="8b0d898668b06f06261165c453f137a2">
+        <source>Отклонить</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Reject</target>
+      </trans-unit>
+      <trans-unit id="c06132cb57f83ddc5a2190d8d4d04f84">
+        <source>К списку</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Back to list</target>
+      </trans-unit>
+      <trans-unit id="6b22cb5c71c6e64cb6848cecbfbfc17f">
+        <source>Предложение не найдено.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Suggestion not found.</target>
+      </trans-unit>
+      <trans-unit id="9a79d3fc44291a8d503aed1e5bf03f25">
+        <source>записей</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">{one} entry|{other} entries</target>
+      </trans-unit>
+      <trans-unit id="76dd6daded325654d62dddd69af49489">
+        <source>Одобрить выбранные</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Approve selected</target>
+      </trans-unit>
+      <trans-unit id="f55aebf79101f60294a91dcf41c50ebe">
+        <source>Отклонить выбранные</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Reject selected</target>
+      </trans-unit>
+      <trans-unit id="174aaabc74d5a30dad88dc05c48dfd17">
+        <source>Удалить выбранные</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Remove selected</target>
+      </trans-unit>
+      <trans-unit id="fb3df31bf52df6c142a279ecdb6dd94c">
+        <source>Действия</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Actions</target>
+      </trans-unit>
+      <trans-unit id="f85025ec14a3dcfee06a09b6a5bee8b7">
+        <source>На сайте</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">On-site</target>
+      </trans-unit>
+      <trans-unit id="1706282c5244c8e988f76c5eb939b754">
+        <source>Редактировать</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Edit</target>
+      </trans-unit>
+      <trans-unit id="47e2436e5560837160a70c64466ea22b">
+        <source>Изменить</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Change</target>
+      </trans-unit>
+      <trans-unit id="ed2bbfbc53d83d3ad81f7fd6485ac6e8">
+        <source>Удалить</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Delete</target>
+      </trans-unit>
+      <trans-unit id="c4884779e8599e79ee958e3d9e62dfb9">
+        <source>Очередь пуста.</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">The queue is empty.</target>
+      </trans-unit>
+      <trans-unit id="c6fd3c6a629b51b28c19e8495994f4ca">
+        <source>Ошибка</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Error</target>
+      </trans-unit>
+      <trans-unit id="790de3a759cd3fcca8fe2cc0585b091e">
+        <source>Схема настроек недоступна</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Settings schema unavailable</target>
+      </trans-unit>
+      <trans-unit id="4617d14c7a1e0968548798378bfb28bc">
+        <source>Файл конфигурации недоступен для записи</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Configuration file is not writable</target>
+      </trans-unit>
+      <trans-unit id="4cd337bfca576ea71f9e38554058a5bd">
+        <source>Каталог конфигурации недоступен для записи</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Configuration directory is not writable</target>
+      </trans-unit>
+      <trans-unit id="834b5876f89b407a67f0b3ff11e2c9c5">
+        <source>Все поля недействительны</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">All fields are invalid</target>
+      </trans-unit>
+      <trans-unit id="8b54b4eeeef985eb232f5f6656eaac5c">
+        <source>Внимание</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Warning</target>
+      </trans-unit>
+      <trans-unit id="f1f7d4ab31a434c2af63f5ed356e0547">
+        <source>Частичное сохранение завершено с ошибками в полях</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Partial save completed with field errors</target>
+      </trans-unit>
+      <trans-unit id="54a59b19f9945c7a147b563b0d61c5ad">
+        <source>Сохранено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Saved</target>
+      </trans-unit>
+      <trans-unit id="22c9a6fed5c73377cc7b17aed5d649df">
+        <source>Отклонено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Rejected</target>
+      </trans-unit>
+      <trans-unit id="0c450c40f3e9bca781dd6f676691d793">
+        <source>Удалено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Removed</target>
+      </trans-unit>
+      <trans-unit id="f032ab2cfc601790848d0fb32f963436">
+        <source>Одобрено</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Approved</target>
+      </trans-unit>
+      <trans-unit id="7923730f73ec45fe467c72e475c8db13">
+        <source>Не выбраны записи</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">No entries selected</target>
+      </trans-unit>
+      <trans-unit id="04a3948f4096af7d36608fc9a355a82f">
+        <source>Обработано: {n}</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Processed: {n}</target>
+      </trans-unit>
+      <trans-unit id="4a3e56523e32aee48b83d96fb60d7177">
+        <source>Теги (через запятую)</source>
+        <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tags (comma-separated)</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
