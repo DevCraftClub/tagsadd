@@ -518,6 +518,50 @@
         <source>Теги (через запятую)</source>
         <target state="needs-review-translation" state-qualifier="x-leveraged-ai">Tags (comma-separated)</target>
       </trans-unit>
+      <trans-unit id="34e1413d659cf910494586bf9fbc727e">
+        <source>Готово</source>
+        <target state="needs-translation">Готово</target>
+      </trans-unit>
+      <trans-unit id="d990cf7e125d2a395abbf5d431c4a8b8">
+        <source>Клиент отправки не загружен</source>
+        <target state="needs-translation">Клиент отправки не загружен</target>
+      </trans-unit>
+      <trans-unit id="ad60fd5baf892420bc4405353c99371f">
+        <source>Теги отправлены на модерацию</source>
+        <target state="needs-translation">Теги отправлены на модерацию</target>
+      </trans-unit>
+      <trans-unit id="3161858f584e2be7760a265632945ed9">
+        <source>Не удалось отправить теги</source>
+        <target state="needs-translation">Не удалось отправить теги</target>
+      </trans-unit>
+      <trans-unit id="8f6cc64fe5b159a9af0fb7965d7781c6">
+        <source>Ошибка сети при отправке тегов</source>
+        <target state="needs-translation">Ошибка сети при отправке тегов</target>
+      </trans-unit>
+      <trans-unit id="6da0f0ae044012e784cdb53ab72a16f1">
+        <source>Отправить</source>
+        <target state="needs-translation">Отправить</target>
+      </trans-unit>
+      <trans-unit id="987b33c664dce148f1d17f6eb9ab3e79">
+        <source>Отмена</source>
+        <target state="needs-translation">Отмена</target>
+      </trans-unit>
+      <trans-unit id="64199273c18f27dac730b27e3319d2e3">
+        <source>Причина отклонения</source>
+        <target state="needs-translation">Причина отклонения</target>
+      </trans-unit>
+      <trans-unit id="e915c08a97ec70c44026b3857d54ba7b">
+        <source>Удалить предложение? Это действие необратимо.</source>
+        <target state="needs-translation">Удалить предложение? Это действие необратимо.</target>
+      </trans-unit>
+      <trans-unit id="cefbd268218d53e73395aa89d5c3a650">
+        <source>Удалить предложение?</source>
+        <target state="needs-translation">Удалить предложение?</target>
+      </trans-unit>
+      <trans-unit id="55f21ef32c6d6294b2ac77aa93e51af4">
+        <source>Действие необратимо. Пользователь не получит уведомление.</source>
+        <target state="needs-translation">Действие необратимо. Пользователь не получит уведомление.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
