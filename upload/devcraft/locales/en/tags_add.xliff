@@ -540,15 +540,15 @@
       </trans-unit>
       <trans-unit id="6da0f0ae044012e784cdb53ab72a16f1">
         <source>Отправить</source>
-        <target state="needs-translation">Отправить</target>
+        <target state="translated">Send</target>
       </trans-unit>
       <trans-unit id="987b33c664dce148f1d17f6eb9ab3e79">
         <source>Отмена</source>
-        <target state="needs-translation">Отмена</target>
+        <target state="translated">Cancel</target>
       </trans-unit>
       <trans-unit id="64199273c18f27dac730b27e3319d2e3">
         <source>Причина отклонения</source>
-        <target state="needs-translation">Причина отклонения</target>
+        <target state="translated">Reason for rejection</target>
       </trans-unit>
       <trans-unit id="e915c08a97ec70c44026b3857d54ba7b">
         <source>Удалить предложение? Это действие необратимо.</source>
