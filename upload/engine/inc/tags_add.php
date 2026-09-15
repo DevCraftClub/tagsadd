@@ -15,4 +15,4 @@ if(!defined('DEVCRAFT_BOOTSTRAPPED')) {
 	return;
 }
 
-DevCraft\Core\Application::instance()->runAdmin(moduleDir: 'TagsAdd');
+DevCraft\Core\Application::instance()->runAdmin(moduleDir: 'TagsAdd', mod: DevCraft\Modules\TagsAdd\TagsAddIdentity::mod());

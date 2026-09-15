@@ -20,8 +20,15 @@ return [
 				__('XLIFF TagsAdd перенесён из locales/ru/ в locales/ru_RU/.'),
 			],
 			'changed' => [
+				__('Публичный include: Controller/show_tags_add.php от корня сайта.'),
+				__('CSS и JS сайта — siteAssets (Public/tags_add.css, tags_add_site.js); include focus=css/js пустые.'),
+				__('Манифест через ModuleManifestBuilder, TagsAddIdentity, публичный suggest через publicMethod.'),
+				__('Фронт подгружает конфиг через DataManager после DevCraft bootstrap.'),
 				__('Рендер button/modal через нативный $tpl и шаблоны темы.'),
 				__('Блок author в manifest убран — используется дефолт ModuleManifest.'),
+			],
+			'removed' => [
+				__('Файл engine/modules/devcraft/tags_add.php — в теме только Controller/show_tags_add.php.'),
 			],
 		],
 	],
