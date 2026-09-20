@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Pages;
 
+use DevCraft\Modules\TagsAdd\TagsAddIdentity;
+
 use DLEPlugins;
+use DevCraft\Builders\QueryBuilder;
 use DevCraft\Core\Application;
 use DevCraft\Types\FilterSchema;
 use DevCraft\Core\Abstracts\AbstractPage;
@@ -12,6 +15,7 @@ use DevCraft\Core\Admin\FilterFormService;
 use DevCraft\Core\Support\ParseTemplateTags;
 use DevCraft\Modules\TagsAdd\Models\TagSuggestion;
 use DevCraft\Modules\TagsAdd\Repositories\TagSuggestionRepository;
+use DevCraft\Core\Support\DleDataService;
 
 /**
  * Список предложений тегов.
@@ -129,21 +133,23 @@ final class SuggestionsPage extends AbstractPage {
 	 * @return array<int, array<string, mixed>>
 	 */
 	private function loadNewsMap(array $ids): array {
-		global $db;
-
 		if($ids === []) {
 			return [];
 		}
 
-		$safe = implode(',', array_map('intval', $ids));
-		$db->query(
-			'SELECT id, title, alt_name, category, date FROM ' . PREFIX . "_post WHERE id IN ({$safe})",
-		);
+		$rows = QueryBuilder::create('post')
+			->withColumns(['id', 'title', 'alt_name', 'category', 'date'])
+			->withConditionsItem('id', ['op' => 'in', 'value' => array_values($ids)])
+			->load();
 
 		$map = [];
 
-		while($row = $db->get_row()) {
-			$map[(int) $row['id']] = $row;
+		foreach($rows as $row) {
+			$id = (int) ($row['id'] ?? 0);
+
+			if($id > 0) {
+				$map[$id] = $row;
+			}
 		}
 
 		return $map;
@@ -155,11 +161,10 @@ final class SuggestionsPage extends AbstractPage {
 	 * @return array<int, string>
 	 */
 	private function loadUserNameMap(array $ids): array {
-		$dle = Application::instance()->dleData();
 		$map = [];
 
 		foreach($ids as $id) {
-			$user     = $dle->user(id: $id);
+			$user     = DleDataService::user(id: $id);
 			$name     = trim((string) ($user['name'] ?? ''));
 			$map[$id] = $name !== ''? $name : ('#' . $id);
 		}
@@ -177,7 +182,7 @@ final class SuggestionsPage extends AbstractPage {
 
 		for($page = 1; $page <= $totalPages; $page++) {
 			$params      = array_merge($query, [
-				'mod'    => 'tags_add',
+				'mod'    => TagsAddIdentity::mod(),
 				'action' => 'suggestions',
 				'page'   => $page,
 			]);
@@ -188,10 +193,13 @@ final class SuggestionsPage extends AbstractPage {
 	}
 
 	private function loadFilterSchema(): FilterSchema {
-		/** @var array<string, mixed> $raw */
-		$raw = require DLEPlugins::Check(__DIR__ . '/../Filter/filter.schema.php');
+		$schema = require DLEPlugins::Check(__DIR__ . '/../Filter/filter.schema.php');
 
-		return FilterSchema::fromArray($raw);
+		if(!$schema instanceof FilterSchema) {
+			throw new \RuntimeException('Неверная схема фильтра TagsAdd');
+		}
+
+		return $schema;
 	}
 
 }
