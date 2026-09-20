@@ -4,15 +4,9 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Pages;
 
-use DevCraft\Modules\TagsAdd\TagsAddIdentity;
-
 use DLEPlugins;
-use DevCraft\Core\Application;
-use DevCraft\Core\Config\Paths;
-use DevCraft\Core\Support\DataManager;
 use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Interfaces\SettingsPageInterface;
-use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
 use DevCraft\Core\Support\DleDataService;
 
 /**
@@ -24,13 +18,6 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 		global $config, $dle_login_hash;
 
 		$this->addBreadcrumb(__('Настройки'));
-
-		$normalizer = new ConfigNormalizer();
-		$configFile = Paths::config() . '/tags_add.json';
-
-		if(!is_file($configFile)) {
-			DataManager::saveConfig(TagsAddIdentity::code(), $normalizer->normalize(DataManager::getConfig(TagsAddIdentity::code(), NULL, 'tagsadd')));
-		}
 
 		$dleHome = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/';
 

@@ -1,50 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
 <dleplugin>
-<name>TagsAdd</name>
-<description>Предложение тегов к новостям и модерация очереди</description>
-<icon></icon>
-<version>200.3.1</version>
-<dleversion>20.0</dleversion>
-<versioncompare>greater</versioncompare>
-<upgradeurl/>
-<filedelete>1</filedelete>
-<needplugin>DevCraft Admin</needplugin>
-<mnotice>0</mnotice>
-<mysqlinstall>
-	<![CDATA[
+	<name>TagsAdd</name>
+	<description>Предложение тегов к новостям и модерация очереди</description>
+	<icon>devcraft/src/modules/TagsAdd/Public/icon.png</icon>
+	<version>200.3.1</version>
+	<dleversion>20.0</dleversion>
+	<versioncompare>greater</versioncompare>
+	<upgradeurl></upgradeurl>
+	<filedelete>1</filedelete>
+	<needplugin>DevCraft Admin</needplugin>
+	<mnotice>1</mnotice>
+	<mysqlinstall><![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
-]]>
-</mysqlinstall>
-<mysqlupgrade>
-	<![CDATA[
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'devcraft/src/modules/TagsAdd/Public/icon.png', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', icon = 'devcraft/src/modules/TagsAdd/Public/icon.png', allow_groups = '1,2';
+]]></mysqlinstall>
+	<mysqlupgrade><![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
-]]>
-</mysqlupgrade>
-<mysqlenable>
-	<![CDATA[
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'devcraft/src/modules/TagsAdd/Public/icon.png', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', icon = 'devcraft/src/modules/TagsAdd/Public/icon.png', allow_groups = '1,2';
+]]></mysqlupgrade>
+	<mysqlenable><![CDATA[
 INSERT INTO {prefix}_admin_sections (name, title, descr, icon, allow_groups)
-VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'mif-price-tags', '1,2')
-ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', allow_groups = '1,2';
-]]>
-</mysqlenable>
-<mysqldisable>
-	<![CDATA[
+VALUES ('tags_add', 'TagsAdd v200.3.1', 'Предложение тегов к новостям', 'devcraft/src/modules/TagsAdd/Public/icon.png', '1,2')
+ON DUPLICATE KEY UPDATE title = 'TagsAdd v200.3.1', descr = 'Предложение тегов к новостям', icon = 'devcraft/src/modules/TagsAdd/Public/icon.png', allow_groups = '1,2';
+]]></mysqlenable>
+	<mysqldisable><![CDATA[
 DELETE FROM {prefix}_admin_sections WHERE name = 'tags_add';
-]]>
-</mysqldisable>
-<mysqldelete>
-	<![CDATA[
+]]></mysqldisable>
+	<mysqldelete><![CDATA[
 DELETE FROM {prefix}_admin_sections WHERE name = 'tags_add';
 DROP TABLE IF EXISTS {prefix}_tags_add;
-]]>
-</mysqldelete>
-<phpinstall><![CDATA[]]></phpinstall>
-<phpupgrade><![CDATA[]]></phpupgrade>
-<phpenable><![CDATA[]]></phpenable>
-<phpdisable><![CDATA[]]></phpdisable>
-<phpdelete><![CDATA[]]></phpdelete>
-<notice><![CDATA[]]></notice>
+]]></mysqldelete>
+	<phpinstall><![CDATA[]]></phpinstall>
+	<phpupgrade><![CDATA[]]></phpupgrade>
+	<phpenable><![CDATA[]]></phpenable>
+	<phpdisable><![CDATA[]]></phpdisable>
+	<phpdelete><![CDATA[]]></phpdelete>
+	<notice><![CDATA[<ul><li>Сайт автора: <a href="https://devcraft.club/" target="_blank">devcraft.club</a></li><li>Документация: <a href="https://readme.devcraft.club/dev/dle/usertags/200.3.1/getting_started" target="_blank">readme.devcraft.club</a></li></ul>]]></notice>
 </dleplugin>

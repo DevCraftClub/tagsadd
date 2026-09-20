@@ -35,7 +35,7 @@ return ModuleManifestBuilder::create()
 	->version('200.3.1')
 	->description(__('Предложение тегов к новостям и модерация очереди'))
 	->icon('mif-price-tags')
-	->docsLink('https://readme.devcraft.club/dev/usertags/')
+	->docsLink('https://readme.devcraft.club/dev/dle/usertags/200.3.1/getting_started')
 	->siteLink('https://devcraft.club/downloads/polzovatelskie-tegi.12/')
 	->siteId(12)
 	->menu([
@@ -65,7 +65,11 @@ return ModuleManifestBuilder::create()
 	)
 	->siteAssets(
 		ModuleSiteAssetsBuilder::create()
-			->js('tags_add_site.js')
 			->css('tags_add.css')
+			->js(
+				'tags_add_site.js',
+				dependsOn: ['devcraft/src/templates/core/assets/js/dc_public.js'],
+				available: ['main', 'showfull', 'lastnews', 'tags', 'allnews'],
+			)
 	)
 	->build(__DIR__);
