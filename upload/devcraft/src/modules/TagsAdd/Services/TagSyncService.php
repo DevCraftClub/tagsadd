@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DevCraft\Modules\TagsAdd\Services;
 
+use DevCraft\Builders\QueryBuilder;
+
 /**
  * Инкрементальная синхронизация тегов/xfields при одобрении.
  */
@@ -34,9 +36,13 @@ final class TagSyncService {
 			return $this->applyXfield($newsId, $proposed, $config);
 		}
 
-		$row = $db->super_query('SELECT tags FROM ' . PREFIX . "_post WHERE id='{$newsId}'");
+		$row = QueryBuilder::create('post')
+			->withColumns(['tags'])
+			->withConditionsItem('id', $newsId)
+			->withLimit(1)
+			->first();
 
-		if(empty($row)) {
+		if($row === []) {
 			return [];
 		}
 
@@ -51,12 +57,14 @@ final class TagSyncService {
 		$db->query('UPDATE ' . PREFIX . "_post SET tags='{$csv}' WHERE id='{$newsId}'");
 
 		foreach($missing as $tag) {
-			$safe = $db->safesql($tag);
-			$cnt  = $db->super_query(
-				'SELECT COUNT(*) as count FROM ' . PREFIX . "_tags WHERE news_id='{$newsId}' AND tag='{$safe}'",
-			);
+			$safe  = $db->safesql($tag);
+			$found = QueryBuilder::create('tags')
+				->withColumns(['news_id'])
+				->withConditions(['news_id' => $newsId, 'tag' => $tag])
+				->withLimit(1)
+				->first();
 
-			if((int) ($cnt['count'] ?? 0) === 0) {
+			if($found === []) {
 				$db->query(
 					'INSERT INTO ' . PREFIX . "_tags (news_id, tag) VALUES ('{$newsId}', '{$safe}')",
 				);
@@ -83,9 +91,13 @@ final class TagSyncService {
 			return [];
 		}
 
-		$row = $db->super_query('SELECT xfields FROM ' . PREFIX . "_post WHERE id='{$newsId}'");
+		$row = QueryBuilder::create('post')
+			->withColumns(['xfields'])
+			->withConditionsItem('id', $newsId)
+			->withLimit(1)
+			->first();
 
-		if(empty($row)) {
+		if($row === []) {
 			return [];
 		}
 
@@ -123,13 +135,18 @@ final class TagSyncService {
 			$safeField = $db->safesql($field);
 
 			foreach($missing as $tag) {
-				$safe = $db->safesql($tag);
-				$cnt  = $db->super_query(
-					'SELECT COUNT(*) as count FROM ' . PREFIX
-					. "_xfsearch WHERE news_id='{$newsId}' AND tagname='{$safeField}' AND tagvalue='{$safe}'",
-				);
+				$safe  = $db->safesql($tag);
+				$found = QueryBuilder::create('xfsearch')
+					->withColumns(['news_id'])
+					->withConditions([
+						'news_id'  => $newsId,
+						'tagname'  => $field,
+						'tagvalue' => $tag,
+					])
+					->withLimit(1)
+					->first();
 
-				if((int) ($cnt['count'] ?? 0) === 0) {
+				if($found === []) {
 					$db->query(
 						'INSERT INTO ' . PREFIX
 						. "_xfsearch (news_id, tagname, tagvalue) VALUES ('{$newsId}', '{$safeField}', '{$safe}')",

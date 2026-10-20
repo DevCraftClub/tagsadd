@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace DevCraft\Modules\TagsAdd\Pages;
 
 use DLEPlugins;
-use DevCraft\Core\Application;
-use DevCraft\Core\Config\Paths;
-use DevCraft\Core\Support\DataManager;
 use DevCraft\Core\Abstracts\AbstractPage;
 use DevCraft\Core\Interfaces\SettingsPageInterface;
-use DevCraft\Modules\TagsAdd\Services\ConfigNormalizer;
+use DevCraft\Core\Support\DleDataService;
 
 /**
  * Настройки TagsAdd.
@@ -21,13 +18,6 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 		global $config, $dle_login_hash;
 
 		$this->addBreadcrumb(__('Настройки'));
-
-		$normalizer = new ConfigNormalizer();
-		$configFile = Paths::config() . '/tags_add.json';
-
-		if(!is_file($configFile)) {
-			DataManager::saveConfig('tags_add', $normalizer->normalize(DataManager::getConfig('tags_add', NULL, 'tagsadd')));
-		}
 
 		$dleHome = rtrim((string) ($config['http_home_url'] ?? '/'), '/') . '/';
 
@@ -45,12 +35,11 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 	}
 
 	public function supplementFormData(): array {
-		$dleData = Application::instance()->dleData();
 		$empty   = ['' => __('— не выбрано —')];
 
 		$userOptions = $empty;
 
-		foreach($dleData->users() as $row) {
+		foreach(DleDataService::users() as $row) {
 			$name = trim((string) ($row['name'] ?? ''));
 
 			if($name === '') {
@@ -63,7 +52,7 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 
 		$userXfieldOptions = $empty;
 
-		foreach($dleData->userXfields() as $name => $meta) {
+		foreach(DleDataService::userXfields() as $name => $meta) {
 			$key = is_string($name)? $name : (string) (is_array($meta)? ($meta['name'] ?? '') : '');
 
 			if($key === '') {
@@ -76,7 +65,7 @@ final class SettingsPage extends AbstractPage implements SettingsPageInterface {
 
 		$postXfieldOptions = $empty;
 
-		foreach($dleData->postXfields() as $name => $meta) {
+		foreach(DleDataService::postXfields() as $name => $meta) {
 			$key = is_string($name)? $name : (string) (is_array($meta)? ($meta['name'] ?? '') : '');
 
 			if($key === '') {

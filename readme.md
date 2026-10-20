@@ -1,13 +1,13 @@
 # TagsAdd
 
-Модуль предложения тегов к новостям для DevCraft Admin и DataLife Engine 20.0.
+Модуль предложения тегов к новостям для DevCraft Admin и DataLife Engine 20.0+.
 
 | | |
 |---|---|
 | Версия | **200.3.1** |
 | Совместимость | DevCraft Admin ≥ **200.4.1**, DLE **20.0** |
 | Сайт | https://devcraft.club/downloads/polzovatelskie-tegi.12/ |
-| Документация | https://readme.devcraft.club/dev/usertags/ |
+| Документация | https://readme.devcraft.club/dev/dle/usertags/200.3.1/getting_started |
 
 ## Установка
 
@@ -18,14 +18,16 @@
 
 ## Подключение в теме
 
-В `fullstory.tpl`:
+В `main.tpl` — тег `{devcraft}` (или `{devcraft-header}` / `{devcraft-scripts}`): стили и скрипт TagsAdd подтягиваются из `siteAssets`.
+
+Канон include на новости (путь от корня сайта):
 
 ```
-{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=css"}
-{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=button"}
-{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=modal"}
-{include file="engine/modules/devcraft/tags_add.php?newsid={news-id}&focus=js"}
+{include file="devcraft/src/modules/TagsAdd/Controller/show_tags_add.php?news_id={news-id}&focus=button"}
+{include file="devcraft/src/modules/TagsAdd/Controller/show_tags_add.php?news_id={news-id}&focus=modal"}
 ```
+
+`focus=css` и `focus=js` больше ничего не выводят.
 
 ## Ограничения
 

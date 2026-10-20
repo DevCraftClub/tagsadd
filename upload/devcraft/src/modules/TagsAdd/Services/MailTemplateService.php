@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace DevCraft\Modules\TagsAdd\Services;
 
 use DLEPlugins;
+use DevCraft\Core\Support\DleDataService;
 use DevCraft\Core\Support\ParseTemplateTags;
 
 /**
@@ -45,17 +46,13 @@ final class MailTemplateService {
 			return false;
 		}
 
-		$to = $db->super_query(
-			'SELECT user_id, name, email FROM ' . USERPREFIX . "_users WHERE name='" . $db->safesql($toName) . "'",
-		);
+		$to = DleDataService::user(uname: $toName);
 
 		if(empty($to['user_id'])) {
 			return false;
 		}
 
-		$from = $db->super_query(
-			'SELECT user_id, name FROM ' . USERPREFIX . "_users WHERE name='" . $db->safesql($fromName) . "'",
-		);
+		$from = DleDataService::user(uname: $fromName);
 
 		$senderId = (int) ($from['user_id'] ?? ($member_id['user_id'] ?? 0));
 
