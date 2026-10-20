@@ -520,7 +520,7 @@
       </trans-unit>
       <trans-unit id="34e1413d659cf910494586bf9fbc727e">
         <source>Готово</source>
-        <target state="needs-translation">Готово</target>
+        <target state="translated">Ready</target>
       </trans-unit>
       <trans-unit id="d990cf7e125d2a395abbf5d431c4a8b8">
         <source>Клиент отправки не загружен</source>
