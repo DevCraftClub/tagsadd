@@ -562,6 +562,70 @@
         <source>Действие необратимо. Пользователь не получит уведомление.</source>
         <target state="needs-translation">Действие необратимо. Пользователь не получит уведомление.</target>
       </trans-unit>
+      <trans-unit id="cb46980287854dc6021184798ae82e23">
+        <source>Этот include выводит только кнопку открытия окна. Обычно его ставят в</source>
+        <target state="needs-translation">Этот include выводит только кнопку открытия окна. Обычно его ставят в</target>
+      </trans-unit>
+      <trans-unit id="4f1cbb7df8661b68d6594db90594df6c">
+        <source>2. HTML окна предложения</source>
+        <target state="needs-translation">2. HTML окна предложения</target>
+      </trans-unit>
+      <trans-unit id="c64569aa023f30ccd79a6d35263779c2">
+        <source>Этот include выводит разметку окна. Разместите его на той же странице новости, где есть кнопка.</source>
+        <target state="needs-translation">Этот include выводит разметку окна. Разместите его на той же странице новости, где есть кнопка.</target>
+      </trans-unit>
+      <trans-unit id="5177fe6bbc44239a46aba5d36ca2925f">
+        <source>3. Стили и скрипты сайта</source>
+        <target state="needs-translation">3. Стили и скрипты сайта</target>
+      </trans-unit>
+      <trans-unit id="e85ebba3916e7f8ceba86a915ea4b8ae">
+        <source>CSS и JS модуля попадают в публичную оболочку через siteAssets (списки Admin). В</source>
+        <target state="needs-translation">CSS и JS модуля попадают в публичную оболочку через siteAssets (списки Admin). В</target>
+      </trans-unit>
+      <trans-unit id="f4a81b6a25451129ebe1023806454bfc">
+        <source>Include с focus=css и focus=js больше ничего не выводят — старые строки в теме можно убрать.</source>
+        <target state="needs-translation">Include с focus=css и focus=js больше ничего не выводят — старые строки в теме можно убрать.</target>
+      </trans-unit>
+      <trans-unit id="2fb90df6d6cfb9ca17fea87ad162501f">
+        <source>Публичный include: Controller/show_tags_add.php от корня сайта.</source>
+        <target state="needs-translation">Публичный include: Controller/show_tags_add.php от корня сайта.</target>
+      </trans-unit>
+      <trans-unit id="37be17e79da003ebe557091d9888013d">
+        <source>CSS и JS сайта — siteAssets (Public/tags_add.css, tags_add_site.js); include focus=css/js пустые.</source>
+        <target state="needs-translation">CSS и JS сайта — siteAssets (Public/tags_add.css, tags_add_site.js); include focus=css/js пустые.</target>
+      </trans-unit>
+      <trans-unit id="460528717a65f2b2efc53643cda34eda">
+        <source>У публичного JS — зависимость от dc_public.js и разделы main / showfull / lastnews / tags / allnews (только если записи ещё нет в БД).</source>
+        <target state="needs-translation">У публичного JS — зависимость от dc_public.js и разделы main / showfull / lastnews / tags / allnews (только если записи ещё нет в БД).</target>
+      </trans-unit>
+      <trans-unit id="875d948943eb94fe900a4737f6404c84">
+        <source>install.xml: иконка — путь к Public/icon.png, allow_groups 1,2, notice — сайт автора и документация.</source>
+        <target state="needs-translation">install.xml: иконка — путь к Public/icon.png, allow_groups 1,2, notice — сайт автора и документация.</target>
+      </trans-unit>
+      <trans-unit id="859ff90e4299e5d746056325dba56a85">
+        <source>Фильтр очереди через FilterSchemaBuilder; заголовки новостей через QueryBuilder.</source>
+        <target state="needs-translation">Фильтр очереди через FilterSchemaBuilder; заголовки новостей через QueryBuilder.</target>
+      </trans-unit>
+      <trans-unit id="a96d1534e9e659de479716bce55198ac">
+        <source>Манифест через ModuleManifestBuilder, TagsAddIdentity, публичный suggest через publicMethod.</source>
+        <target state="needs-translation">Манифест через ModuleManifestBuilder, TagsAddIdentity, публичный suggest через publicMethod.</target>
+      </trans-unit>
+      <trans-unit id="6739c49a4911aae6795b40507afe6fdf">
+        <source>Фронт подгружает конфиг через DataManager после DevCraft bootstrap.</source>
+        <target state="needs-translation">Фронт подгружает конфиг через DataManager после DevCraft bootstrap.</target>
+      </trans-unit>
+      <trans-unit id="88fdaa7af83ab440222e3c21d9a60218">
+        <source>Файл engine/modules/devcraft/tags_add.php — в теме только Controller/show_tags_add.php.</source>
+        <target state="needs-translation">Файл engine/modules/devcraft/tags_add.php — в теме только Controller/show_tags_add.php.</target>
+      </trans-unit>
+      <trans-unit id="7e97468acf0fc34b7bb4bab18a0a977a">
+        <source>CSS и JS модуля в templates/*/devcraft/tags_add/.</source>
+        <target state="needs-translation">CSS и JS модуля в templates/*/devcraft/tags_add/.</target>
+      </trans-unit>
+      <trans-unit id="e96f497052d58cbe058a62e267d9525e">
+        <source>Автопосев tags_add.json при открытии настроек.</source>
+        <target state="needs-translation">Автопосев tags_add.json при открытии настроек.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
